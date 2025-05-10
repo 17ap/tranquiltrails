@@ -1,0 +1,11 @@
+запрос POST (единственный, который нельзя посмотреть через строку браузера)
+
+curl -X POST http://localhost:3000/booking \                                                                                      ✔  894  23:23:15  
+  -H "Content-Type: application/json" \
+  -d '{
+    "fullName": "Иван Петров",
+    "email": "ivan@example.com",
+    "phoneNumber": "+79161234567",
+    "eventId": "123e4567-e89b-12d3-a456-426614174000",
+    "slots": 2
+  }'

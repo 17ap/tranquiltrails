@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_DB: tranquil_paths
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"  # Порт для подключения к db_content
+
+  # app:
+  #   image: tranquil_paths:latest # todo
+  #   ports:
+  #     - 8090:8090
+  #   depends_on:
+  #     - db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
