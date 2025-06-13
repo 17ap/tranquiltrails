@@ -1,6 +1,6 @@
 запрос POST (единственный, который нельзя посмотреть через строку браузера)
 
-curl -X POST http://localhost:3000/booking \
+curl -X POST http://localhost:3000/booking \                                                                                      ✔  894  23:23:15  
   -H "Content-Type: application/json" \
   -d '{
     "fullName": "Иван Петров",
