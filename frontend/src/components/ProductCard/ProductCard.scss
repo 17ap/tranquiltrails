@@ -1,0 +1,124 @@
+/* ProductCard.scss */
+
+.product-card {
+  background: white;
+  border-radius: 22px; /* Совпадает с event-card */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Совпадает с event-card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Совпадает с event-card */
+  cursor: pointer; /* Делаем карточку кликабельной */
+  display: flex; /* Flexbox для расположения элементов внутри */
+  flex-direction: column; /* Элементы идут сверху вниз */
+  text-decoration: none; /* Убираем подчеркивание, если карточка - ссылка */
+  color: inherit; /* Наследуем цвет текста */
+  height: 100%; /* Чтобы все карточки в гриде имели одинаковую высоту */
+
+
+  &:hover {
+    transform: translateY(-5px); /* Совпадает с event-card */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Совпадает с event-card */
+
+    .product-image-wrapper img { /* Передаем hover эффект на обертку, как в event-image */
+      transform: scale(1.05); /* Совпадает с event-card */
+    }
+  }
+}
+
+.product-image-link {
+  /* Это div, который оборачивает изображение и делает его кликабельным */
+  display: block; /* Занимает всю доступную ширину */
+  overflow: hidden; /* Для эффекта scale */
+}
+
+.product-image-wrapper { /* Аналог .event-image */
+  height: 250px; /* Высота изображения в основной карточке - Совпадает с event-image */
+  overflow: hidden; /* Для эффекта зума */
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обрезает изображение, чтобы оно заполнило контейнер */
+    transition: transform 0.5s ease; /* Для эффекта зума при наведении */
+  }
+}
+
+.product-info { /* Аналог .event-info */
+  padding: 20px; /* Совпадает с event-info */
+  text-align: center; /* Центрируем весь контент внутри info */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем по горизонтали */
+  justify-content: space-between; /* Чтобы кнопка прижималась к низу, а заголовок к верху */
+  flex-grow: 1; /* Позволяет info-блоку растягиваться */
+}
+
+.product-price-display { /* Аналог .event-price */
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 32px; /* Размер цены - Совпадает с event-price */
+  font-weight: 600;
+  color: #A46641; /* Коричневый цвет - Совпадает с event-price */
+  margin-bottom: 0px; /* Убираем нижний отступ */
+  order: -1; /* Помещаем цену над заголовком */
+}
+
+
+.product-title-h4 { /* Аналог .event-title */
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px; /* Совпадает с event-title */
+  font-weight: 500;
+  margin: 0; /* Убираем отступы */
+  color: #333;
+
+  display: flex; /* Для центрирования текста в заголовке */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+    min-height: 54px; /* Чтобы карточки были одинаковой высоты */
+  line-height: 1.3; /* Для лучшего вида */
+  display: -webkit-box; /* Для обрезки текста по количеству строк */
+  -webkit-line-clamp: 2; /* Ограничение до 2 строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 10px;
+}
+
+
+/* Стили для кнопки "Написать продавцу" - Аналог .event-button */
+.seller-contact-button {
+  display: block;
+  width: 100%; /* Кнопка на всю ширину карточки - Совпадает с event-button */
+  padding: 12px 20px; /* Отступы - Совпадают с event-button */
+  margin-top: auto; /* Прижимает кнопку к низу, если product-info flex-контейнер */
+
+  background: #A46641; /* Основной цвет - Совпадает с event-button */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px; /* Совпадает с event-button */
+  cursor: pointer;
+  box-sizing: border-box; /* Включает padding в ширину */
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px; /* Совпадает с event-button */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  transition: all 0.3s ease; /* Совпадает с event-button */
+
+  &:hover {
+    background: #7B381D; /* Совпадает с event-button */
+    transform: translateY(-2px); /* Совпадает с event-button */
+    text-decoration: none;
+    color: white;
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+  }
+}
+

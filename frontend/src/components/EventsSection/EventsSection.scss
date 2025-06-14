@@ -1,0 +1,40 @@
+.events-section {
+  padding: 60px 0;
+  flex: 1; /* Занимает доступное пространство */
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+h3{
+      font-family: 'Cormorant Unicase', serif;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 100px;
+    line-height: 1.3;
+    color: #324521;
+    text-transform: uppercase;
+    span {
+      color: #A46641;
+    }
+
+    text-align: center;
+}
+
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px; /* Отступ под сеткой */
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}

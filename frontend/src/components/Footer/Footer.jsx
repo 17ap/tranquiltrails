@@ -36,8 +36,8 @@ export default function Footer() {
           <div className="footer-column">
             <h4 className="footer-title">ИНФОРМАЦИЯ</h4>
             <ul className="footer-links">
-              <li><a href="/dock">Договор публичной оферты</a></li>
-              <li><a href="/police">Политика конфиденциальности</a></li>
+              <li><a href="/offer">Договор публичной оферты</a></li>
+              <li><a href="/policy">Политика конфиденциальности</a></li>
               <li>
                 <a href="https://t.me/apl17w" target="_blank" rel="noopener noreferrer">
                   Разработка сайта @apl17

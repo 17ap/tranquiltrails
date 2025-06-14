@@ -1,5 +1,16 @@
 // Component for About Section
+import { useNavigate } from 'react-router-dom';
+import './AboutSection.scss';
+
+
 export default function AboutSection() {
+  const navigate = useNavigate();
+
+  const handleJoinClick = () => {
+    console.log('Attempting navigation...'); // Debug
+    navigate('/contacts'); // Переход на страницу контактов
+  };
+
     return (
       <section className="about-us">
         <div className="container">
@@ -26,8 +37,13 @@ export default function AboutSection() {
           </div>
           
           <div className="center-button">
-            <button className="join-button">Присоединиться</button>
-          </div>
+          <button 
+            className="join-button" 
+            onClick={handleJoinClick} // Добавляем обработчик клика
+          >
+            Присоединиться
+          </button>
+        </div>
           
           <div className="features-container">
             <div className="features">

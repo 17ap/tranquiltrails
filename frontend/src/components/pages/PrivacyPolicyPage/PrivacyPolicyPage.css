@@ -1,0 +1,50 @@
+/* src/pages/PrivacyPolicyPage.css */
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  .privacy-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .privacy-header h1 {
+    font-size: 36px;
+    color: #324521;
+    margin-bottom: 20px;
+  }
+  
+  .privacy-content {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .privacy-content h2 {
+    font-size: 24px;
+    color: #324521;
+    margin: 40px 0 20px;
+    font-weight: 500;
+  }
+  
+  .privacy-content p {
+    margin-bottom: 20px;
+  }
+  
+  .privacy-content a {
+    color: #717857;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .privacy-header h1 {
+      font-size: 30px;
+    }
+    
+    .privacy-content {
+      font-size: 18px;
+    }
+  }

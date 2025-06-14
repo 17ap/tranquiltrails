@@ -19,6 +19,7 @@ app.get('/products', async (req, res) => {
             image: product.image.toString('base64'), // Convert bytea to base64
             imageUrl: `data:image/jpeg;base64,${product.image.toString('base64')}`, // Ready-to-use URL
             description: product.description,
+            category: product.category, // Добавляем категорию
             amountAvailable: product.amount_available,
             inStock: product.amount_available > 0 // Computed field
         }));
@@ -167,6 +168,25 @@ app.post('/booking', async (req, res) => {
         await db.query('ROLLBACK');
         console.error('Booking error:', err);
         res.status(500).json({ error: 'Booking failed', details: err.message });
+    }
+});
+
+app.post('/application', async (req, res) => {
+    try {
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).json({ error: 'Request body is empty' });
+        }
+
+        const {name, email, phoneNumber} = req.body;
+        
+        const result = await db.query(
+            'INSERT INTO applications (name, email, phone, agreement) VALUES ($1, $2, $3, $4)',
+            [name, email, phoneNumber, true]
+        );
+        res.status(201).json({ message: 'Заявка отправлена!'});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Database error' });
     }
 });
 

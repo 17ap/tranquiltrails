@@ -1,0 +1,245 @@
+.about-us {
+  padding: 100px 0;
+  background-color: var(--light-color);
+}
+
+
+
+/* Текстовая часть */
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Фиксированный отступ 24px между блоками */
+}
+
+/* Изображение */
+.about-image {
+  flex: 1;
+  display: flex;
+ 
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%; /* Изображение заполняет свой контейнер */
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Стили для текстовых блоков */
+.text-box {
+  border-radius: 22px;
+  padding: 30px;
+  display: flex;      
+  flex-direction: column; 
+  align-items: center;   
+  justify-content: center; 
+  padding-top: 60px;
+  flex-grow: 1;
+}
+
+.first-box {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.second-box {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+}
+
+.third-box {
+  border: 2px solid var(--secondary-color);
+  background-color: transparent;
+}
+
+.text-box p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center; 
+  
+  
+}
+
+.third-box p {
+  color: #000000;
+}
+
+/* Кнопка "Присоединиться"  */
+
+.center-button {
+  text-align: center; /* Центрируем кнопку */
+}
+
+.join-button {
+  background: var(--primary-color); 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-family:  'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.join-button:hover {
+  background: var(--dark-color); 
+}
+
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .about-content {
+    flex-direction: column; 
+    gap: 40px; 
+  }
+  
+  .about-image {
+    height: 400px; 
+    margin-top: 0; 
+  }
+
+  .about-image img {
+    height: 100%; 
+  }
+  
+  .text-box p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    gap: 30px;
+  }
+  
+  .text-box {
+    padding: 20px;
+  }
+
+  .text-box p {
+    font-size: 16px; 
+  }
+
+  .join-button {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .about-us {
+    padding: 60px 0;
+  }
+
+  .about-content {
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .about-image {
+    height: 300px;
+  }
+}
+
+
+.features-container {
+  position: relative;
+  margin-top: 160px;
+}
+
+.features-line {
+  height: 2px;
+  background-color: #717857;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.feature-box {
+  position: relative;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.feature-texture {
+  width: 340px;
+  height: auto;
+  display: block;
+}
+
+.feature-box h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .about-content {
+      flex-direction: column;
+  }
+  
+  .text-box {
+      width: 100% !important;
+  }
+  
+  .about-image img {
+      width: 100%;
+  }
+  
+  .features {
+      flex-direction: column;
+  }
+  
+  .features-line {
+      width: 2px !important;
+      height: 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+      font-size: 36px;
+  }
+  
+  .header-line {
+      width: 100px !important;
+  }
+  
+  .text-box p {
+      font-size: 18px;
+  }
+  
+  .feature-texture {
+      width: 280px;
+  }
+}
+.about-content {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 60px;
+}

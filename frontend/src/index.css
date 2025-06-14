@@ -14,7 +14,7 @@
 .market,
 .reviews-section,
 .contact-form {
-  padding: 140px 0;
+padding: 100px 0;
 }
 
 /* Отступы между блоками внутри секций */
@@ -22,7 +22,7 @@
 .reasons-grid,
 .products-grid,
 .reviews-grid {
-  margin-bottom: 140px;
+  margin-bottom: 100px;
 }
 
 /* Убрать линии под заголовками */
@@ -40,21 +40,24 @@
 .telegram-plate {
   background: var(--secondary-color) !important;
   border-radius: 30px;
-  padding: 60px 0;
-  margin: 140px 0;
+   padding: 30px;
+margin: 0 auto 40px auto;
+  margin-bottom: 40px;
+   max-width: 1200px;
+
 }
 
 .telegram-plate .offer-text h3 {
   color: var(--light-color);
   font-size: 42px;
+  flex: 1;
+  text-align: center;
 }
 
 .telegram-plate .offer-image img {
   border-radius: 30px;
   box-shadow: none;
 }
-
-
 
 /* Адаптивность */
 @media (max-width: 992px) {
@@ -175,6 +178,127 @@ body {
   cursor: pointer;
 }
 
+/* Стили формы обратной связи */
+.contact-form {
+  padding: 80px 0;
+  background-color: #F9F8F3;
+  position: relative;
+}
+
+.contacts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contacts-form {
+  background: white;
+  border-radius: 22px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 2px solid #2b4d30;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  color: #324521;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #D9D9D9;
+  border-radius: 22px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #A46641;
+  box-shadow: 0 0 0 2px rgba(164, 102, 65, 0.2);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin: 30px 0;
+}
+
+.checkbox-group input {
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.checkbox-group label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.submit-btn {
+  background: #717857;
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 22px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #5A6145;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contacts-form {
+      padding: 30px;
+  }
+  
+  .contact-form {
+      padding: 40px 0;
+  }
+  
+  .checkbox-group label {
+      font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts-form {
+      padding: 20px;
+  }
+  
+  .submit-btn {
+      padding: 15px 30px;
+      font-size: 16px;
+  }
+}
+.contact-form .section-title {
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* или ваше значение */
+  padding: 0 20px; /* для адаптивности */
+}
 /* Герой секция */
 .hero {
   text-align: center;
@@ -349,322 +473,8 @@ body {
 
 
 
-/* ==================== */
-/* ABOUT US SECTION / О НАС */
-/* ==================== */
-.about-us {
-  padding: 100px 0;
-  background-color: var(--light-color);
-}
 
-.about-content {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 80px;
-  align-items: stretch; /* Растягиваем до одинаковой высоты */
-}
 
-/* Текстовая часть */
-.about-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px; /* Фиксированный отступ 24px между блоками */
-}
-
-/* Изображение */
-.about-image {
-  flex: 1;
-  display: flex;
-}
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-/* Стили для текстовых блоков */
-.text-box {
-  border-radius: 22px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  flex-grow: 1; /* Растягиваем на всю доступную высоту */
-}
-
-.first-box {
-  background-color: var(--dark-color);
-  color: var(--light-color);
-}
-
-.second-box {
-  background-color: var(--secondary-color);
-  color: var(--light-color);
-}
-
-.third-box {
-  border: 5px solid var(--secondary-color);
-  background-color: transparent;
-}
-
-.text-box p {
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 20px; /* Уменьшенный размер текста */
-  line-height: 1.5;
-  margin: 0;
-}
-
-.third-box p {
-  color: #000000;
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .about-content {
-    flex-direction: column;
-  }
-  
-  .about-image {
-    height: 400px;
-    margin-top: 40px;
-  }
-  
-  .text-box p {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-content {
-    gap: 30px;
-  }
-  
-  .text-box {
-    padding: 20px;
-  }
-}
-
-.features-container {
-  position: relative;
-  margin-top: 60px;
-}
-
-.features-line {
-  height: 2px;
-  background-color: #717857;
-}
-
-.features {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.feature-box {
-  position: relative;
-  text-align: center;
-  margin: 0 20px;
-}
-
-.feature-texture {
-  width: 340px;
-  height: auto;
-  display: block;
-}
-
-.feature-box h4 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  font-family: 'Manrope', sans-serif;
-  font-size: 20px;
-  color: white;
-  margin: 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .about-content {
-      flex-direction: column;
-  }
-  
-  .text-box {
-      width: 100% !important;
-  }
-  
-  .about-image img {
-      width: 100%;
-  }
-  
-  .features {
-      flex-direction: column;
-  }
-  
-  .features-line {
-      width: 2px !important;
-      height: 50px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-      font-size: 36px;
-  }
-  
-  .header-line {
-      width: 100px !important;
-  }
-  
-  .text-box p {
-      font-size: 18px;
-  }
-  
-  .feature-texture {
-      width: 280px;
-  }
-}
-
-/* ==================== */
-/* EVENTS SECTION / МЕРОПРИЯТИЯ */
-/* ==================== */
-.events {
-  padding: 80px 20px;
-  background-color: #F9F8F3;
-}
-
-.events .section-title {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: clamp(32px, 5vw, 48px); /* Адаптивный размер шрифта */
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: clamp(40px, 5vw, 80px);
-  text-transform: uppercase;
-  color: #000000;
-  position: relative;
-}
-
-.events .section-title::after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 2px;
-  background-color: #717857;
-  margin: 20px auto 0;
-}
-
-.event-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.event-card {
-  background: white;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.event-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-}
-
-.event-image {
-  height: 240px;
-  overflow: hidden;
-  position: relative;
-}
-
-.event-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.event-card:hover .event-image img {
-  transform: scale(1.05);
-}
-
-.event-info {
-  padding: 25px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.event-price {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: clamp(22px, 3vw, 28px);
-  font-weight: 600;
-  color: #A46641;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.event-title {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: clamp(18px, 2.5vw, 22px);
-  font-weight: 400;
-  line-height: 1.4;
-  color: #000000;
-  margin-bottom: 25px;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.event-button {
-  background: #717857;
-  color: white;
-  border: none;
-  padding: 14px;
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(15px, 2vw, 18px);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-  text-transform: uppercase;
-  width: 100%;
-  margin-top: auto;
-}
-
-.event-button:hover {
-  background: #5A6145;
-  transform: translateY(-2px);
-}
-
-/* Адаптивность для очень маленьких экранов */
-@media (max-width: 400px) {
-  .event-cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .event-image {
-    height: 200px;
-  }
-  
-  .event-info {
-    padding: 20px;
-  }
-}
 
 /* Why Join Section */
 .why-join {
@@ -676,11 +486,11 @@ body {
 .why-join .section-title {
   font-family: 'Cormorant Unicase', serif;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 300;
   text-align: center;
   margin-bottom: 80px;
   text-transform: uppercase;
-  color: #000000;
+  color: #505F50;
 }
 
 .reasons-grid {
@@ -695,9 +505,14 @@ body {
   background: white;
   border-radius: 22px;
   padding: 50px 30px;
-  position: relative;
+  position: relative; /* Сохраняем relative для позиционирования звезды */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column; /* Элементы будут располагаться по вертикали */
+  align-items: center; /* Центрируем содержимое по горизонтали */
+  text-align: center; /* Центрируем текст внутри */
 }
 
 .reason-card:hover {
@@ -705,27 +520,33 @@ body {
 }
 
 .star-decoration {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
+
+  position: absolute; 
+  top: -25px; 
+  left: 0; 
+  right: 0; 
+  margin: 0 auto; 
+
   width: 50px;
   height: 50px;
+
+
 }
 
 .reason-content {
-  text-align: center;
+  /* text-align: center; */ /* Уже центрируется через reason-card */
+  margin-top: 5px; 
 }
 
 .reason-content p {
-  font-family: 'Century Gothic', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: #000000;
   margin: 0;
 }
 
-/* Адаптивность */
+/* Адаптивность - без изменений, если она работает корректно */
 @media (max-width: 992px) {
   .reasons-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -858,217 +679,136 @@ body {
 /* MARKET SECTION / МАРКЕТ */
 /* ==================== */
 .market {
-  padding: 80px 20px;
+  padding: 80px 20px; /* Берем из первой версии */
   background-color: #F9F8F3;
 }
 
-.market .section-title {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: clamp(40px, 5vw, 60px);
-  text-transform: uppercase;
-  color: #000000;
-  position: relative;
-}
-
-.market .section-title:after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 2px;
-  background-color: #717857;
-  margin: 20px auto 0;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.product-image {
-  height: 280px;
-  overflow: hidden;
-  position: relative;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image img {
-  transform: scale(1.03);
-}
-
-.product-info {
-  padding: 20px;
-  text-align: center;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-price {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #A46641;
-  margin-bottom: 10px;
-}
-
-.product-title {
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #000000;
-  margin-bottom: 20px;
-  line-height: 1.4;
-  flex-grow: 1;
-}
-
-.product-action {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.tg-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #0088CC;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.tg-link:hover {
-  background: #0077B5;
-  transform: scale(1.1);
-}
-
-.tg-link img {
-  width: 20px;
-  height: 20px;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .product-image {
-    height: 240px;
-  }
-  
-  .product-price {
-    font-size: 22px;
-  }
-  
-  .product-title {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
-  }
-  
-  .product-image {
-    height: 200px;
-  }
-}
-
-/* ==================== */
-/* REVIEWS SECTION / ОТЗЫВЫ */
-/* ==================== */
-.reviews-section {
-  padding: 80px 20px;
-  background-color: #F9F8F3;
-}
-
-.reviews-section h3 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 36px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #324521;
-}
-
-.reviews-grid {
+.products-grid { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px; 
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.review-card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transition: transform 0.3s ease;
+/* Стили для контейнера вкладок фильтров */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* Отступ между кнопками */
+  margin-bottom: 50px; /* Отступ снизу */
 }
 
-.review-card:hover {
-  transform: translateY(-5px);
-}
-
-.review-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-  border: 3px solid #F9F8F3;
-}
-
-.review-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.review-text h4 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 20px;
-  color: #A46641;
-  margin-bottom: 15px;
-}
-
-.review-text p {
-  font-family: 'Manrope', sans-serif;
+/* Стили для каждой кнопки фильтра */
+.filter-tab { /* Используем filter-tab вместо filter-btn */
+  background: #D9D9D9; /* Цвет фона неактивной кнопки */
+  color: #000000; /* Цвет текста неактивной кнопки */
+  border: none;
+  padding: 12px 25px; /* Внутренние отступы */
+  font-family: 'Manrope', sans-serif; /* Изменяем шрифт на Manrope */
   font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  border-radius: 8px; /* Меньшее скругление, как на макете */
+  text-transform: capitalize; /* Первая буква заглавная, остальные строчные */
+}
+
+/* Стили при наведении на кнопку */
+.filter-tab:hover {
+  background: #A46641; /* Цвет фона при наведении */
+  color: white; /* Цвет текста при наведении */
+}
+
+/* Стили для активной кнопки фильтра */
+.filter-tab.active {
+  background: #717857; /* Цвет фона активной кнопки */
+  color: white; /* Цвет текста активной кнопки */
+  font-weight: 600; /* Жирный шрифт для активной кнопки */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для активной кнопки */
+}
+
+/* Адаптивность для кнопок фильтров */
+@media (max-width: 992px) {
+  .filter-tabs {
+    gap: 10px; /* Уменьшаем отступ на средних экранах */
+  }
+  .filter-tab {
+    padding: 10px 20px; /* Уменьшаем padding */
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+}
+
+@media (max-width: 400px) {
+  .filter-tabs {
+    justify-content: flex-start; /* Выравниваем по левому краю для маленьких экранов */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    padding-bottom: 10px; /* Добавляем отступ снизу для прокрутки */
+    white-space: nowrap; /* Предотвращаем перенос кнопок */
+    -webkit-overflow-scrolling: touch; /* Улучшаем скроллинг на iOS */
+  }
+  .filter-tab {
+    display: inline-block; /* Делаем кнопки строчно-блочными */
+  }
+}
+
+.products-grid { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Адаптивность для общих элементов страницы */
+@media (max-width: 1200px) {
+
+  .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+
+  .filter-tabs {
+      gap: 10px;
+  }
+  .filter-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .market {
+      padding: 60px 0; /* Или 60px 20px, если у вас был padding: 80px 20px изначально */
+  }
+  .products-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 400px) {
+
+  .filter-tabs {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+  }
+  .filter-btn {
+      display: inline-block;
+  }
 }
 
 /* Адаптивность */
@@ -1105,127 +845,464 @@ body {
   }
 }
 
-/* Стили формы обратной связи */
-.contact-form {
-  padding: 80px 0;
-  background-color: #F9F8F3;
-  position: relative;
-}
+/*Market Detail Page*/
 
-.contacts-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 60px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contacts-form {
-  background: white;
-  border-radius: 22px;
-  padding: 50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  border: 2px solid #2b4d30;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group label {
-  display: block;
-  font-family: 'Manrope', sans-serif;
-  font-size: 16px;
-  color: #324521;
-  margin-bottom: 10px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 15px 20px;
-  border: 1px solid #D9D9D9;
-  border-radius: 22px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #A46641;
-  box-shadow: 0 0 0 2px rgba(164, 102, 65, 0.2);
-}
-
-.checkbox-group {
+.market-detail-page {
   display: flex;
-  align-items: flex-start;
-  margin: 30px 0;
-}
-
-.checkbox-group input {
-  margin-right: 15px;
-  margin-top: 3px;
-}
-
-.checkbox-group label {
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F9F8F3;
   font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
+  color: #333;
 }
 
-.submit-btn {
-  background: #717857;
+.product-page {
+  flex: 1;
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.product-card-detail {
+  display: flex;
+  /* Устанавливаем относительные размеры колонок, чтобы галерея была больше */
+  /* Например, 60% для галереи и 40% для инфо, или явно задаем ширину */
+  /* Здесь попробуем с явными ширинами и позволим info занять остаток */
+  gap: 60px; /* Отступ между колонками */
+  margin-bottom: 80px;
+  align-items: flex-start; /* Элементы выравниваются по верху */
+  
+  /* Добавляем общие стили для карточки, если нужны */
+  background: white; /* Фон для всей карточки */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Легкая тень для всей карточки */
+  padding: 40px; /* Внутренние отступы для всей карточки */
+
+  @media (max-width: 992px) {
+    flex-direction: column; /* На маленьких экранах - вертикально */
+    gap: 40px;
+    padding: 20px; /* Меньшие отступы на мобильных */
+  }
+}
+
+.product-gallery {
+  /* Мы хотим, чтобы галерея имела фиксированную максимальную ширину */
+  /* или занимала определенную долю, но не слишком сжималась */
+  flex-shrink: 0; /* Не сжимать галерею */
+  flex-grow: 0; /* Не давать галерее расти больше необходимого */
+  width: 55%; /* Задаем галерее 55% ширины родителя */
+  max-width: 600px; /* Максимальная ширина для больших экранов */
+  min-width: 300px; /* Чтобы изображение не было слишком маленьким */
+
+  @media (max-width: 992px) {
+    width: 100%; /* На мобильных устройствах занимает всю ширину */
+    max-width: unset; /* Сброс максимальной ширины */
+    min-width: unset;
+  }
+
+  .main-image {
+    /* Эти стили в целом хороши, но убираем padding и даем img fill space */
+    background: white; /* Пусть background будет на product-card */
+    padding: 0; /* Убираем padding, чтобы картинка заполняла */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden; /* Обрезает, если изображение выходит за границы */
+    display: flex; /* Делаем flex для центрирования изображения, если оно меньше контейнера */
+    justify-content: center;
+    align-items: center;
+    
+    /* Задаем фиксированную высоту для main-image, чтобы картинка не "прыгала" при загрузке */
+    /* и чтобы всегда была определенная область для нее */
+    height: 450px; /* Например, фиксированная высота */ 
+    @media (max-width: 768px) {
+        height: 350px; /* Чуть меньше на планшетах */
+    }
+    @media (max-width: 576px) {
+        height: 280px; /* Ещё меньше на мобильных */
+    }
+
+
+    img {
+      width: 100%;
+      height: 100%; /* Заставляет изображение заполнять весь main-image */
+      object-fit: contain; /* Картинка будет полностью видна, не обрезаясь, с сохранением пропорций */
+      border-radius: 8px;
+      display: block;
+    }
+  }
+
+  .thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+
+    .thumbnail {
+      background: white;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 5px;
+      transition: border-color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 80px;
+        object-fit: cover; /* Обрезает изображение, чтобы оно заполняло контейнер */
+        border-radius: 4px;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        border-color: #A46641;
+      }
+
+      &.active {
+        border-color: #717857;
+        box-shadow: 0 0 0 3px rgba(113, 120, 87, 0.3);
+      }
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    }
+  }
+}
+
+.product-info {
+  flex: 1; /* Позволяет блоку информации занимать оставшееся пространство */
+  min-width: 300px; /* Минимальная ширина, чтобы текст не сильно сжимался */
+  position: relative; /* Для позиционирования кнопки */
+}
+
+.product-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+h1.product-title {
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #324521;
+  line-height: 1.1;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
+}
+
+.product-badge {
+  background-color: #A46641;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.product-price {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  margin: 20px 0 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+
+  @media (max-width: 576px) {
+    font-size: 32px;
+  }
+
+  .old-price {
+    font-size: 24px;
+    color: #888;
+    text-decoration: line-through;
+    font-weight: 500;
+
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.product-availability {
+  color: #717857;
+  margin-bottom: 25px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.product-description {
+  margin-bottom: 30px;
+  line-height: 1.8;
+  font-size: 17px;
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.contact-seller-button {
+  /* Перепозиционируем кнопку */
+  position: absolute; /* Позиционируем относительно product-info */
+  right: 0; /* Прижимаем к правому краю */
+  top: 0; /* Выравниваем по верхнему краю (можно настроить) */
+  transform: translateY(-50%); /* Поднимаем на половину высоты кнопки */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Центрируем контент */
+  gap: 5px; /* Уменьшаем отступ для иконки/текста */
+  background: #A46641;
   color: white;
   border: none;
-  padding: 18px 50px;
+  padding: 8px 15px; /* Меньшие отступы для компактности */
   font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px; /* Меньший шрифт */
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 22px;
+  border-radius: 8px; /* Чуть меньше скругление */
   text-transform: uppercase;
-  width: 100%;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  white-space: nowrap; /* Не дает тексту переноситься */
+  
+  /* Убираем margin-top, так как позиционируем абсолютно */
+  margin-top: 0; 
+
+  &:hover {
+    background: #8a5536;
+    transform: translateY(-50%) scale(1.03); /* Учитываем transform при ховере */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Добавляем иконку Telegram, если она нужна */
+  &::before {
+    content: url('/images/telegram-icon.svg'); /* Путь к вашей SVG-иконке */
+    display: inline-block;
+    width: 18px; /* Размер иконки */
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 5px; /* Отступ от текста */
+  }
+
+  @media (max-width: 768px) {
+    position: static; /* На мобильных убираем абсолютное позиционирование */
+    width: 100%; /* Кнопка становится полной ширины */
+    margin-top: 20px; /* Возвращаем отступ сверху */
+    transform: none; /* Сброс transform */
+    padding: 12px 20px; /* Возвращаем более крупные отступы */
+  }
 }
 
-.submit-btn:hover {
-  background: #5A6145;
-  transform: translateY(-2px);
+
+/* ... (Остальные стили рекомендаций, загрузки/ошибки остаются без изменений) ... */
+
+/* Модификация для product-title в recommendation-details */
+.recommendation-card .product-title {
+  font-family: 'Manrope', sans-serif; /* Здесь можно оставить Manrope */
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 50px; /* Чтобы карточки не прыгали, если нет описания */
+}
+
+/* Модификация для price в recommendation-details */
+.recommendation-card .price {
+  font-family: 'Manrope', sans-serif; /* Также можно изменить на Manrope для консистентности */
+  font-size: 22px; /* Чуть меньше, чем на основной странице */
+  font-weight: 700;
+  color: #A46641;
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+/* ==================== */
+/* REVIEWS SECTION / ОТЗЫВЫ */
+/* ==================== */
+
+.reviews-section {
+  padding: 80px 20px; /* Из второй версии */
+  background-color: #F9F8F3; /* Из второй версии */
+  max-width: 1200px; /* Из первой версии, но применим к контейнеру, если он есть */
+  margin: 0 auto; /* Центрируем секцию */
+}
+
+.reviews-section h3 { 
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 48px; 
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #324521; 
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.review-card {
+  background: white;
+  border-radius: 22px; 
+  padding: 30px; 
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
+  text-align: center; 
+  transition: transform 0.3s ease; 
+}
+
+.review-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+}
+
+.review-image {
+  width: 150px; /* Из второй версии (больше размер) */
+  height: 150px; /* Из второй версии (больше размер) */
+  border-radius: 50%; /* Обе версии совпадают */
+  overflow: hidden; /* Обе версии совпадают */
+  margin: 0 auto 20px; /* Обе версии совпадают */
+  border: 3px solid #F9F8F3; /* Из второй версии (рамка вокруг аватара) */
+}
+
+.review-image img {
+  width: 100%; /* Обе версии совпадают */
+  height: 100%; /* Обе версии совпадают */
+  object-fit: cover; /* Обе версии совпадают */
+}
+
+.review-text h4 { 
+  font-family: 'Cormorant Unicase', serif; /* Используем Cormorant Unicase */
+  font-size: 20px; /* Обе версии совпадают */
+  font-weight: 600; /* Из первой версии, более смелый */
+  color: #A46641; /* Из второй версии */
+  margin-bottom: 15px; /* Обе версии совпадают */
+}
+
+/* Текст отзыва */
+.review-text p {
+  font-family: 'Manrope', sans-serif; 
+  font-size: 16px; 
+  color: #333; 
+  line-height: 1.6; 
+  margin: 0; 
+}
+
+/* Адаптивность для reviews-grid (повторяем из вашего предыдущего запроса, если нужно) */
+@media (max-width: 992px) {
+  .reviews-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Автоматическое изменение количества колонок */
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
-  .contacts-form {
-      padding: 30px;
+  .reviews-section {
+    padding: 50px 15px;
   }
-  
-  .contact-form {
-      padding: 40px 0;
+  .reviews-section h3 {
+    font-size: 30px; /* Уменьшаем размер заголовка на мобильных */
+    margin-bottom: 30px;
   }
-  
-  .checkbox-group label {
-      font-size: 12px;
+  .reviews-grid {
+    grid-template-columns: 1fr; /* Одна колонка на узких экранах */
+    max-width: 400px; /* Ограничиваем ширину для одной колонки */
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 480px) {
-  .contacts-form {
-      padding: 20px;
-  }
+/* Reviews Section */
+
+/* Center the navigation buttons */
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
   
-  .submit-btn {
-      padding: 15px 30px;
-      font-size: 16px;
-  }
+/* Style the navigation buttons */
+.nav-button {
+    width: 48px; /* Размер контейнера кнопки */
+    height: 48px; /* Размер контейнера кнопки */
+    border-radius: 50%; /* Делаем кнопку круглой */
+    background: transparent; /* Прозрачный фон */
+    border: 2px solid #D9D9D9; /* Тонкая рамка */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавный переход для всех свойств */
+    color: #555; /* Цвет для иконки (currentColor) */
+    padding: 0; /* Убираем лишние отступы */
+    font-size: 0; /* Гарантируем, что никакого текста не будет видно */
 }
-.contact-form .section-title {
-  text-align: center;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px; /* или ваше значение */
-  padding: 0 20px; /* для адаптивности */
+  
+.nav-button:hover {
+    background: #717857; /* Цвет фона при наведении (как у кнопок) */
+    border-color: #717857; /* Цвет рамки при наведении */
+    color: white; /* Цвет иконки при наведении */
+    transform: scale(1.1); /* Небольшое увеличение при наведении */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Легкая тень при наведении */
 }
+
+/* Стили для встроенных SVG иконок */
+.nav-button svg {
+    width: 24px; /* Размер самой SVG-иконки */
+    height: 24px; /* Размер самой SVG-иконки */
+    stroke: currentColor; /* Иконка будет принимать цвет текста (.nav-button color) */
+    fill: none; /* Убедимся, что фон иконки не заливается */
+    stroke-width: 2; /* Толщина линии иконки */
+}
+
+/* При наведении на кнопку, цвет обводки SVG меняется через 'color' родителя */
+.nav-button:hover svg {
+    stroke: white; /* Это будет работать, так как color родителя изменится на white */
+}
+  
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-navigation {
+      gap: 15px;
+    }
+    
+    .nav-button {
+      width: 40px; 
+      height: 40px;
+    }
+    .nav-button svg {
+      width: 20px;
+      height: 20px;
+    }
+}
+
 /* Footer Styles */
 .footer {
   background: #717857;
@@ -1348,47 +1425,63 @@ body {
   }
 }
 
-
-/*Карточка мероприятия страница*/
-/* Карточка товара */
-.event-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.main-image {
-  height: 500px;
-  width: 100%;
-}
-
-.event-info {
-  padding: 0;
+.events-page {
+  background-color: #F9F8F3;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Адаптивность */
-@media (max-width: 992px) {
-  .event-main {
-    gap: 40px;
-  }
-  
-  .main-image {
-    height: 400px;
+
+
+
+/* Стили для Telegram-плашки */
+.telegram-plate {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.offer-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  .event-main {
-    grid-template-columns: 1fr;
-  }
-  
-  .main-image {
-    height: 300px;
+
+
+.offer-image {
+  flex: 1;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
   }
 }
+
+/* Общие стили для статусов (loading, error) */
+.loading, .error {
+  text-align: center;
+  padding: 100px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+}
+
+.error {
+  color: #d9534f;
+}
+
+/*EVENT CARDS*/
+
 .event-detail {
     padding: 100px 0;
     background-color: #F9F8F3;
@@ -1418,705 +1511,396 @@ body {
     object-fit: cover;
 }
 
-.event-info {
-    flex: 1;
-    padding: 30px;
+/*Карточка мероприятия */
+
+.event-detail-page {
+  background-color: #F9F8F3; /* Цвет фона всей страницы */
+  min-height: 100vh; /* Минимальная высота, чтобы фон занимал весь экран */
+  padding: 150px 0; /* Отступы сверху/снизу для контента страницы */
 }
 
-.event-info h1 {
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: #000000;
+.event-detail-page .container {
+  max-width: 1200px; /* Ограничиваем ширину основного контента */
+  margin: 0 auto; /* Центрируем контейнер */
+  padding: 0 20px; /* Горизонтальные отступы для адаптивности */
 }
 
-.event-price {
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 36px;
-    font-weight: 600;
-    color: #A46641;
-    margin-bottom: 30px;
-}
+/* Основной контент мероприятия (верхняя секция) */
+.event-content {
+  display: flex; /* Используем flexbox для размещения изображения и информации */
+  gap: 60px; /* Отступ между изображением и текстом */
+  background: white; /* Фон для этой секции */
+  border-radius: 22px; /* Скругление углов */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Легкая тень */
+  padding: 40px; /* Внутренние отступы */
+  margin-bottom: 80px; /* Отступ до секции рекомендаций */
 
-.quantity-selector {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.quantity-btn {
-    background: #717857;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.quantity-btn:hover {
-    background: #5A6145;
-}
-
-.quantity-input {
-    width: 60px;
-    height: 40px;
-    text-align: center;
-    font-size: 18px;
-    margin: 0 10px;
-    border: 1px solid #D9D9D9;
-    border-radius: 5px;
-}
-
-.book-button {
-    background: #717857;
-    color: white;
-    border: none;
-    padding: 18px 50px;
-    font-family: 'Century Gothic', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 22px;
-    text-transform: uppercase;
-    width: 100%;
-    margin-bottom: 40px;
-}
-
-.book-button:hover {
-    background: #5A6145;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.event-description p {
-    font-family: 'Century Gothic', sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #000000;
-    margin-bottom: 30px;
-}
-
-.event-features {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.event-features li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    font-family: 'Century Gothic', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #000000;
-}
-
-.event-features li:before {
-    content: "•";
-    color: #A46641;
-    font-size: 24px;
-    position: absolute;
-    left: 0;
-    top: -3px;
-}
-
-.recommendations {
-    margin-top: 80px;
-}
-
-.recommendations h2 {
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 36px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #000000;
-    text-transform: uppercase;
-}
-
-.recommendation-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 992px) {
+    flex-direction: column; /* На планшетах и мобильных - в колонку */
     gap: 30px;
+    padding: 30px;
+  }
 }
 
-.recommendation-card {
-    background: white;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
+.event-content .event-image {
+  flex-shrink: 0; /* Изображение не должно сжиматься */
+  width: 50%; /* Занимает половину ширины контейнера */
+  height: 450px; /* Фиксированная высота для изображения */
+  border-radius: 15px; /* Скругление углов изображения */
+  overflow: hidden; /* Обрезаем, если изображение выходит за рамки */
 
-.recommendation-card:hover {
-    transform: translateY(-10px);
-}
-
-.recommendation-card img {
+  img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.card-info {
-    padding: 20px;
-    text-align: center;
-}
-
-.card-info h3 {
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: #000000;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-info .price {
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: #A46641;
-    margin-bottom: 15px;
-}
-
-.book-btn {
-    background: #717857;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-family: 'Century Gothic', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 22px;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-.book-btn:hover {
-    background: #5A6145;
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-    .event-main {
-        flex-direction: column;
-    }
-    
-    .main-image {
-        height: 500px;
-    }
-    
-    .recommendation-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .event-detail {
-        padding: 60px 0;
-    }
-    
-    .main-image {
-        height: 400px;
-    }
-    
-    .event-info h1 {
-        font-size: 36px;
-    }
-    
-    .event-price {
-        font-size: 30px;
-    }
-    
-    .recommendations h2 {
-        font-size: 30px;
-    }
-    
-    .recommendation-cards {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 576px) {
-    .main-image {
-        height: 300px;
-    }
-    
-    .event-info h1 {
-        font-size: 32px;
-    }
-    
-    .event-price {
-        font-size: 28px;
-    }
-    
-    .event-description p {
-        font-size: 16px;
-    }
-    
-    .event-features li {
-        font-size: 14px;
-    }
-}
-
-
-
-/* Маркет страница */
-.market {
-  padding: 100px 0;
-  background-color: #F9F8F3;
-}
-
-.filter-tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 50px;
-}
-
-.filter-btn {
-  background: #D9D9D9;
-  color: #000000;
-  border: none;
-  padding: 12px 25px;
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 22px;
-  text-transform: uppercase;
-}
-
-.filter-btn:hover {
-  background: #A46641;
-  color: white;
-}
-
-.filter-btn.active {
-  background: #717857;
-  color: white;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-card {
-  background: white;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-}
-
-.product-image {
-  height: 300px;
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image img {
-  transform: scale(1.05);
-}
-
-.product-info {
-  padding: 25px;
-  text-align: center;
-  position: relative;
-}
-
-.product-price {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #A46641;
-  margin-bottom: 10px;
-}
-
-.product-title {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #000000;
-}
-
-.tg-action {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.tg-icon {
-  width: 40px;
-  height: 40px;
-}
-
-.tg-action:hover {
-  transform: scale(1.1);
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .market-hero h1 {
-      font-size: 64px;
+    height: 100%;
+    object-fit: cover; /* Изображение заполняет контейнер, сохраняя пропорции */
+    display: block; /* Убираем лишние пробелы под img */
   }
-  
-  .market-hero p {
-      font-size: 36px;
+
+  @media (max-width: 992px) {
+    width: 100%; /* На планшетах и мобильных - на всю ширину */
+    height: 350px; /* Уменьшаем высоту */
   }
-  
-  .products-grid {
-      grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: 576px) {
+    height: 250px; /* Ещё уменьшаем высоту на мобильных */
   }
 }
 
-@media (max-width: 992px) {
-  .market-hero {
-      padding: 250px 0 120px;
-  }
-  
-  .market-hero h1 {
-      font-size: 56px;
-  }
-  
-  .market-hero p {
-      font-size: 30px;
-  }
-  
-  .filter-tabs {
-      gap: 10px;
-  }
-  
-  .filter-btn {
-      padding: 10px 20px;
-      font-size: 14px;
-  }
-  
-  .product-image {
-      height: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .market-hero {
-      padding: 200px 0 80px;
-  }
-  
-  .market-hero h1 {
-      font-size: 48px;
-  }
-  
-  .market-hero p {
-      font-size: 24px;
-  }
-  
-  .market {
-      padding: 60px 0;
-  }
-  
-  .products-grid {
-      grid-template-columns: 1fr;
-      max-width: 500px;
-  }
-  
-  .product-image {
-      height: 300px;
-  }
-  
-  .product-title {
-      font-size: 22px;
-  }
-}
-
-@media (max-width: 576px) {
-  .market-hero {
-      padding: 180px 0 60px;
-  }
-  
-  .market-hero h1 {
-      font-size: 36px;
-  }
-  
-  .market-hero p {
-      font-size: 20px;
-      max-width: 300px;
-  }
-  
-  .product-price {
-      font-size: 24px;
-  }
-  
-  .product-title {
-      font-size: 20px;
-  }
-  
-  .tg-icon {
-      width: 35px;
-      height: 35px;
-  }
-}
-
-@media (max-width: 400px) {
-  .market-hero h1 {
-      font-size: 32px;
-  }
-  
-  .market-hero p {
-      font-size: 18px;
-  }
-  
-  .filter-tabs {
-      justify-content: flex-start;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-  }
-  
-  .filter-btn {
-      display: inline-block;
-  }
-}
-
-
-  
- 
-
-/* О нас страница */
-.about-page {
-  padding: 80px 0;
-  background-color: #F9F8F3;
-}
-
-.about-title {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 48px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 60px;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.about-content {
-  max-width: 1200px;
-  margin: 0 auto 80px;
-}
-
-.about-text p {
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #000000;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.about-images {
-  display: flex;
-  margin: 60px 0;
-  position: relative;
-}
-
-.image-column {
-  flex: 1;
+.event-info {
+  flex-grow: 1; /* Информация занимает оставшееся пространство */
   display: flex;
   flex-direction: column;
 }
 
-.about-image {
-  width: 100%;
-  height: auto;
+.event-info h1 {
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 42px; /* Размер заголовка */
+  font-weight: 600;
+  color: #324521; /* Темно-зеленый цвет */
   margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
 }
 
-.image-column:first-child .about-image {
-  height: 100%;
-  margin-bottom: 0;
+.event-meta {
+  display: flex;
+  gap: 25px; /* Отступ между датой и местоположением */
+  margin-bottom: 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  color: #555;
+  
+  .date, .location {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Отступ между иконкой и текстом, если будут иконки */
+  }
+  /* Здесь можно добавить стили для иконок, если вы их используете: */
+  /* .date::before { content: '📅'; } */
+  /* .location::before { content: '📍'; } */
 }
 
-.divider-line {
-  width: 2px;
-  background-color: #717857;
-  margin: 0 40px;
+.event-price {
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 32px; /* Размер цены */
+  font-weight: 600;
+  color: #A46641; /* Коричневый цвет */
+  margin-bottom: 0px;
 }
 
-.about-button {
-  text-align: center;
-  margin-top: 50px;
+
+.event-description {
+  flex-grow: 1; /* Описание может занимать оставшееся пространство */
 }
 
-.join-button {
-  background: #717857;
+.event-description p {
+  font-family: 'Manrope', sans-serif; /* Изменил на Manrope для основного текста */
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 30px; /* Отступ до кнопки */
+}
+
+.book-button {
+  background: #717857; /* Зеленый цвет кнопки */
   color: white;
   border: none;
   padding: 18px 50px;
-  font-family: 'Century Gothic', sans-serif;
+  font-family: 'Manrope', sans-serif; /* Изменил на Manrope */
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: 22px;
   text-transform: uppercase;
+  width: auto; /* Ширина по контенту */
+  align-self: flex-start; /* Прижимаем кнопку к левому краю во flex-контейнере */
+  white-space: nowrap; /* Предотвращаем перенос текста на кнопке */
+
+  &:hover {
+    background: #5A6145;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
 }
 
-.join-button:hover {
-  background: #5A6145;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+/* Секция "Рекомендуем также" */
+.recommended-events {
+  margin-top: 80px; /* Отступ сверху */
+  margin-bottom: 80px; /* Отступ снизу */
 }
 
-.reviews-section {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.reviews-section h2 {
+.recommended-events h2 {
   font-family: 'Cormorant Unicase', serif;
   font-size: 36px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 50px;
-  color: #000000;
+  color: #324521; /* Цвет как у заголовка секции отзывов */
+  text-transform: uppercase;
 }
 
-.reviews-grid {
+.recommended-events .events-grid { /* Используем events-grid из EventsPage.scss */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    max-width: 400px; /* Ограничиваем ширину для одной колонки */
+    margin: 0 auto; /* Центрируем сетку */
+  }
 }
 
-.review-card {
+/* Стили для карточек в рекомендациях (похожи на event-card из EventsPage) */
+.recommended-events .event-card {
   background: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Делаем карточки кликабельными */
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.recommended-events .event-image {
+  height: 200px; /* Высота изображения в рекомендациях */
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .recommended-events .event-card:hover & img { /* Эффект увеличения изображения */
+    transform: scale(1.05);
+  }
+}
+
+.recommended-events .event-details { /* Используем event-details для info в рекомендациях */
+  padding: 20px;
   text-align: center;
 }
 
-.review-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
+.recommended-events .event-details h3 { /* Название мероприятия в рекомендации */
+  font-family: 'Manrope', sans-serif; /* Manrope для названия */
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+  color: #333;
+  min-height: 54px; /* Чтобы названия были одинаковой высоты */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.review-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.review-text h3 {
+.recommended-events .event-details .event-price { /* Цена в рекомендации */
   font-family: 'Cormorant Unicase', serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: #A46641;
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Убираем нижний отступ */
 }
 
-.review-text p {
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 16px;
-  color: #000000;
-  line-height: 1.6;
+
+/* Стили для модального окна бронирования */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6); /* Более темный оверлей */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Эффект размытия фона */
 }
 
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .about-images {
-      flex-direction: column;
+.modal-content {
+  background: #F9F8F3;
+  padding: 40px 30px; /* Увеличил padding */
+  border-radius: 22px;
+  width: 90%;
+  max-width: 550px; /* Увеличил максимальную ширину */
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Более выраженная тень */
+}
+
+.booking-form {
+  h2 {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 32px; /* Размер заголовка формы */
+    text-align: center;
+    margin-bottom: 30px;
+    color: #324521;
   }
-  
-  .divider-line {
+
+  .form-group {
+    margin-bottom: 25px; /* Увеличил отступ между группами */
+
+    label {
+      display: block;
+      margin-bottom: 10px; /* Увеличил отступ */
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px; /* Размер шрифта */
+      color: #333;
+      font-weight: 500;
+    }
+
+    input {
       width: 100%;
-      height: 2px;
-      margin: 40px 0;
+      padding: 14px 18px; /* Увеличил padding */
+      border: 1px solid #ddd;
+      border-radius: 12px; /* Больше скругление */
+      font-size: 17px;
+      font-family: 'Manrope', sans-serif;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        border-color: #717857;
+        box-shadow: 0 0 0 3px rgba(113, 120, 87, 0.2); /* Легкая тень при фокусе */
+        outline: none;
+      }
+    }
   }
-  
-  .image-column:first-child .about-image {
-      height: auto;
-      margin-bottom: 20px;
+
+  .form-actions {
+    display: flex;
+    justify-content: space-between; /* Распределяем кнопки */
+    gap: 20px; /* Отступ между кнопками */
+    margin-top: 30px;
+
+    button {
+      flex: 1; /* Каждая кнопка занимает равное пространство */
+      padding: 16px 25px;
+      font-size: 17px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      border-radius: 12px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap; /* Предотвращает перенос текста */
+    }
+  }
+
+  .submit-btn {
+    background: #717857;
+    color: white;
+    border: none;
+
+    &:hover {
+      background: #5A6145;
+      transform: translateY(-2px);
+    }
+  }
+
+  .cancel-btn {
+    background: #ccc; /* Серый цвет для отмены */
+    color: #333;
+    border: none;
+
+    &:hover {
+      background: #bbb;
+      transform: translateY(-2px);
+    }
   }
 }
 
-@media (max-width: 992px) {
-  .reviews-grid {
-      grid-template-columns: repeat(2, 1fr);
+.success-message, .error-message {
+  text-align: center;
+  padding: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+
+  h3 {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 28px;
+    color: #324521;
+    margin-bottom: 15px;
   }
-  
-  .review-card:last-child {
-      grid-column: span 2;
+
+  p {
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  .close-btn {
+    background: #717857;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #5A6145;
+    }
   }
 }
 
-@media (max-width: 768px) {
-  .about-title {
-      font-size: 36px;
-  }
-  
-  .about-text p {
-      font-size: 16px;
-  }
-  
-  .reviews-section h2 {
-      font-size: 30px;
-  }
+.loading, .error, .not-found {
+  text-align: center;
+  padding: 100px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  color: #333;
 }
 
-@media (max-width: 576px) {
-  .about-page {
-      padding: 60px 0;
-  }
-  
-  .reviews-grid {
-      grid-template-columns: 1fr;
-  }
-  
-  .review-card:last-child {
-      grid-column: span 1;
-  }
-  
-  .join-button {
-      padding: 15px 40px;
-      font-size: 16px;
-  }
+.error {
+  color: #d9534f;
 }
+/*About us*/
+
+
 
 /* Основные стили для страницы договора оферты */
 body {
@@ -2234,17 +2018,13 @@ body {
       font-size: 19px;
   }
 }
+
 /* Стили для страницы товара */
 .product-page {
   padding: 40px 0;
   background-color: #F9F8F3;
 }
 
-.product-card {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 60px;
-}
 
 .product-gallery {
   flex: 1;
@@ -2399,89 +2179,7 @@ body {
 }
 
 
-/* Стили для блоков "О нас" */
-.about-block {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 80px;
-}
-
-.about-block.reverse {
-  flex-direction: row-reverse;
-}
-
-.about-block .about-text {
-  flex: 1;
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #333;
-}
-
-.about-block .about-text h3 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: #324521;
-  margin-bottom: 30px;
-}
-
-.about-block .about-image {
-  flex: 1;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.about-block .about-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Адаптивность для блоков */
-@media (max-width: 992px) {
-  .about-block,
-  .about-block.reverse {
-      flex-direction: column;
-  }
-  
-  .about-block .about-text,
-  .about-block .about-image {
-      width: 100%;
-  }
-  
-  .about-block .about-text h3 {
-      font-size: 28px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-block .about-text {
-      font-size: 16px;
-  }
-  
-  .about-block {
-      margin-bottom: 60px;
-  }
-}
-
-@media (max-width: 576px) {
-  .about-block .about-text h3 {
-      font-size: 24px;
-      margin-bottom: 20px;
-  }
-  
-  .about-block {
-      margin-bottom: 40px;
-  }
-}
-/* Стили для страницы "О нас" */
-.about-section {
-  padding: 100px 0;
-  background-color: #F9F8F3;
-}
+/* Стили для секции "О нас" */
 
 .section-header {
   display: flex;
@@ -2490,52 +2188,23 @@ body {
   margin-bottom: 60px;
 }
 
-.header-line {
-  height: 2px;
-  background-color: #717857;
-  flex: 1;
-  max-width: 200px;
-}
-
 .section-title {
   font-family: 'Cormorant Unicase', serif;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 300;
   margin: 0 30px;
   text-transform: uppercase;
   color: #324521;
 }
 
-.about-content {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.about-text {
-  flex: 1;
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #333;
-}
 
 .about-text p {
   margin-bottom: 30px;
 }
 
-.about-image {
-  flex: 1;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
 
-.about-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+
+
 
 .center-button {
   text-align: center;
@@ -2546,7 +2215,7 @@ body {
   background: #324521;
   color: #F9F8F3;
   border: none;
-  padding: 18px 50px;
+  padding: 28px 100px;
   font-family: 'Manrope', sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2561,176 +2230,6 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-
-.reviews-section {
-  margin-top: 80px;
-}
-
-.reviews-section h3 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 36px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #324521;
-  text-transform: uppercase;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.review-card {
-  background: white;
-  border-radius: 22px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.review-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-}
-
-.review-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.review-text h4 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 20px;
-  color: #A46641;
-  margin-bottom: 15px;
-}
-
-.review-text p {
-  font-family: 'Manrope', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Адаптивность */
-@media (max-width: 992px) {
-  .about-content {
-      flex-direction: column;
-  }
-  
-  .reviews-grid {
-      grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-      font-size: 36px;
-  }
-  
-  .header-line {
-      max-width: 100px;
-  }
-  
-  .about-text {
-      font-size: 16px;
-  }
-  
-  .reviews-grid {
-      grid-template-columns: 1fr;
-      max-width: 500px;
-      margin: 0 auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .section-title {
-      font-size: 32px;
-  }
-  
-  .reviews-section h3 {
-      font-size: 28px;
-  }
-  
-  .join-button {
-      padding: 15px 40px;
-      font-size: 16px;
-  }
-}
-
-/* Telegram Plate Styles */
-.telegram-plate {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, #F9F8F3 0%, #e8e6d9 100%);
-  border: 2px solid #A46641;
-  border-radius: 16px;
-  padding: 30px;
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.telegram-content {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  max-width: 800px;
-}
-
-.telegram-content h3 {
-  font-family: 'Cormorant Unicase', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: #324521;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.telegram-content h3 span {
-  color: #A46641;
-}
-
-.telegram-icon {
-  width: 60px;
-  height: 60px;
-}
-
-/* Адаптивность для плашки */
-@media (max-width: 768px) {
-  .telegram-content {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-  
-  .telegram-content h3 {
-    font-size: 26px;
-  }
-  
-  .telegram-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .telegram-plate {
-    padding: 20px;
-  }
-  
-  .telegram-content h3 {
-    font-size: 22px;
-  }
-}
-
-
 
 /* Cookies Notice */
 .cookies-notice {
@@ -2869,12 +2368,6 @@ body {
   }
 }
 
-.event-date {
-  font-size: 18px;
-  color: var(--dark-color);
-  margin-bottom: 25px;
-  font-weight: 500;
-}
 
 .modal {
   display: none;
@@ -2937,44 +2430,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Уточненные стили карточки */
-.event-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
 
-.main-image {
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.main-image img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
-
-.quantity-selector {
-  margin: 25px 0;
-}
-
-@media (max-width: 768px) {
-  .event-main {
-      grid-template-columns: 1fr;
-  }
-  
-  .main-image img {
-      height: 300px;
-  }
-  
-  .modal-content {
-      margin: 20% auto;
-      padding: 20px;
-  }
-}
 
 /* Стили для кнопок-ссылок */
 .event-button {
@@ -2985,20 +2441,34 @@ body {
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: 'Manrope', sans-serif;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   box-sizing: border-box;
-}
+ font-weight: 500;
+   cursor: pointer;
+    transition: all 0.3s ease;
 
-.event-button:hover {
-  background: #5A6145;
-  transform: translateY(-2px);
-  text-decoration: none; /* Убираем подчеркивание при наведении */
+  width: 100%; /* Кнопка на всю ширину карточки */
+  text-transform: uppercase;
+
+  &:hover {
+    background: #5A6145;
+    transform: translateY(-2px);
+     text-decoration: none;
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
 }
+    
+
 
 /* Убираем стандартные стили ссылок */
 a {
@@ -3034,3 +2504,5 @@ a:hover {
 .product-title a:hover {
   text-decoration: underline;
 }
+
+

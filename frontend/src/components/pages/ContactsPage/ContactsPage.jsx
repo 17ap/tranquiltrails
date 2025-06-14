@@ -1,64 +1,77 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Header from '../../Header/Header';
+import './ContactsPage.scss';
 
+const ContactsPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    agreement: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
-export default function ContactFormSection() {
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      phoneNumber: '',
-      agreement: false
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false);
-    const [error, setError] = useState(null);
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setIsSubmitting(true);
-      setError(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    
+    try {
+      const response = await fetch('/api/application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
       
-      try {
-        const response = await fetch('/api/application', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-        
-        if (!response.ok) {
-          throw new Error('Ошибка при отправке формы');
-        }
-        
-        const result = await response.json();
-        console.log('Форма отправлена:', result);
-        setShowSuccess(true);
-        setFormData({
-          name: '',
-          email: '',
-          phoneNumber: '',
-          agreement: false
-        });
-      } catch (err) {
-        console.error('Ошибка:', err);
-        setError(err.message);
-      } finally {
-        setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error('Ошибка при отправке формы' + response.json);
       }
-    };
-  
-    const handleChange = (e) => {
-      const { name, value, type, checked } = e.target;
-      setFormData(prev => ({
-        ...prev,
-        [name]: type === 'checkbox' ? checked : value
-      }));
-    };
-  
-    return (
-      <section className="contact-form">
+      
+      const result = await response.json();
+      console.log('Форма отправлена:', result);
+      setShowSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        agreement: false
+      });
+    } catch (err) {
+      console.error('Ошибка:', err);
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  return (
+    <div className="contacts-page-wrapper">
+      <Header />
+      
+      <img 
+        src="/images/Звезда.png" 
+        alt="Декоративная звезда" 
+        className="star-decoration" 
+      />
+
+      <section className="contacts-page">
         <div className="container">
-          <h2 className="section-title">ОСТАВЬ ЗАЯВКУ, И МЫ С ТОБОЙ СВЯЖЕМСЯ</h2>
+          <h2 className="section-title">КОНТАКТЫ</h2>
+          <p className="contacts-subtitle">
+            ОСТАВЬ ЗАЯВКУ, И МЫ С ТОБОЙ СВЯЖЕМСЯ
+          </p>
           
           <div className="contacts-container">
             <div className="contacts-form">
@@ -75,7 +88,7 @@ export default function ContactFormSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />
+                  <img src="/images/Звезда.png" alt="" className="form-star-decoration" loading="lazy" />
                   
                   {error && <div className="error-message">{error}</div>}
                   
@@ -139,8 +152,29 @@ export default function ContactFormSection() {
                 </form>
               )}
             </div>
+            
+            <div className="contacts-info">
+              <div className="info-item">
+                <h3>Адрес</h3>
+                <p>г. Санкт-Петербург</p>
+              </div>
+              
+              <div className="info-item">
+                <h3>Телефон</h3>
+                <p>+7 (911) 543-06-02</p>
+                <p>ежедневно с 10:00-19:00</p>
+              </div>
+              
+              <div className="info-item">
+                <h3>Почта</h3>
+                <p>tranqui.trails.club@mail.ru</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    );
-}
+    </div>
+  );
+};
+
+export default ContactsPage;

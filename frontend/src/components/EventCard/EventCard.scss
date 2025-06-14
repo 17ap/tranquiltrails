@@ -1,0 +1,56 @@
+/* Стили для основных карточек мероприятий на странице списка событий */
+.event-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Делаем карточку кликабельной */
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+}
+
+.event-image {
+  height: 250px; /* Высота изображения в основной карточке */
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+
+    .event-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.event-info {
+  padding: 20px;
+  text-align: center; /* Центрируем весь контент внутри info */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем по горизонтали */
+  justify-content: flex-start; /* Прижимаем кверху, если не весь контент помещается */
+}
+
+
+.event-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0px;
+  color: #333;
+  min-height: 54px; /* Чтобы карточки были одинаковой высоты */
+  display: flex; /* Для центрирования текста в заголовке */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 20px;
+  
+}

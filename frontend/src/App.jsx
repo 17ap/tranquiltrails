@@ -1,15 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import HomePage from './components/pages/HomePage/HomePage';
 import EventsPage from './components/pages/EventsPage/EventsPage';
-import AboutSection from './components/AboutSection/AboutSection';
-import EventsSection from './components/EventsSection/EventsSection';
-import WhyJoinSection from './components/WhyJoinSection/WhyJoinSection';
-import TelegramOffer from './components/TelegramOffer/TelegramOffer';
-import MarketSection from './components/MarketSection/MarketSection';
-import ReviewsSection from './components/ReviewsSection/ReviewsSection';
-import ContactFormSection from './components/ContactFormSection/ContactFormSection';
+import AboutPage from './components/pages/AboutPage/AboutPage';
+import MarketPage from './components/pages/MarketPage/MarketPage';
+import ContactsPage from './components/pages/ContactsPage/ContactsPage';
+import EventDetailPage from './components/pages/EventDetailPage/EventDetailPage';
+// import BookingSuccessPage from './components/pages/BookingSuccessPage/BookingSuccessPage';
+import PrivacyPolicyPage from './components/pages/PrivacyPolicyPage/PrivacyPolicyPage';
+import OfferAgreementPage from './components/pages/OfferAgreementPage/OfferAgreementPage';
+import MarketDetailPage from './components/pages/MarketDetailPage/MarketDetailPage';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import './App.css';
 
 export default function App() {
@@ -24,47 +27,36 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Header />
 
         <main>
-          {/* Hero Section */}
-          {/* TODO пойдет только на главную страницу!!! */}
-          {/* <section className="hero">
-            <div className="container">
-              <h2>Клуб спокойных троп</h2>
-              <p>уникальное пространство для женщин</p>
-            </div>
-          </section> */}
-
           <Routes>
-            {/* <Route path="/" element={<HomePage />} /> */}
+            {/* Главная страница */}
+            <Route path="/" element={<HomePage />} />
+
+            {/* Страница всех мероприятий */}
             <Route path="/events" element={<EventsPage />} />
-            {/* <Route path="/about" element={<AboutPage />} />
+
+            {/* Страница конкретного мероприятия */}
+            <Route path="/events/:id" element={<EventDetailPage />} />
+
+            {/* Страница "О нас" */}
+            <Route path="/about" element={<AboutPage />} />
+
+            {/* Страница магазина */}
             <Route path="/market" element={<MarketPage />} />
-            <Route path="/contacts" element={<ContactsPage />} /> */}
+            <Route path="/product/:id" element={<MarketDetailPage />} />
+
+            {/* Страница контактов */}
+            <Route path="/contacts" element={<ContactsPage />} />
+
+            <Route path="/policy" element={<PrivacyPolicyPage />} />
+
+            <Route path="/offer" element={<OfferAgreementPage />} />
+
           </Routes>
-
-          {/* About Us Section */}
-          <AboutSection />
-
-          {/* Events Section */}
-          <EventsSection />
-
-          {/* Why Join Section */}
-          <WhyJoinSection />
-
-          {/* Telegram Offer */}
-          <TelegramOffer />
-
-          {/* Market Section */}
-          <MarketSection />
-
-          {/* Reviews Section */}
-          <ReviewsSection />
-
-          {/* Contact Form */}
-          <ContactFormSection />
         </main>
 
         <Footer />

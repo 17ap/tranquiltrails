@@ -36,10 +36,15 @@ export default function ReviewsSection() {
     );
   };
 
-  const visibleReviews = reviews.slice(
-    currentIndex, 
-    currentIndex + reviewsPerPage
-  );
+  const getVisibleReviews = () => {
+    let endIndex = currentIndex + reviewsPerPage;
+    if (endIndex > reviews.length) {
+      endIndex = reviews.length;
+    }
+    return reviews.slice(currentIndex, endIndex);
+  };
+
+  const visibleReviews = getVisibleReviews();
 
   if (loading) return <div>Загрузка отзывов...</div>;
   if (error) return <div>Ошибка: {error}</div>;
@@ -48,22 +53,22 @@ export default function ReviewsSection() {
   return (
     <section className="reviews-section">
       <div className="container">
-        <h3>Отзывы</h3>
+        <h3>ОТЗЫВЫ</h3>
         <div className="reviews-grid">
           {visibleReviews.map((review) => (
             <div className="review-card" key={review.id}>
               <div className="review-image">
                 <img 
                   src={review.photoUrl} 
-                  alt={review.full_name} 
+                  alt={review.name} 
                   loading="lazy"
                   onError={(e) => {
-                    e.target.src = '/images/default-avatar.jpg';
+                    e.target.src = '/images/default-avatar.jpg'; 
                   }}
                 />
               </div>
               <div className="review-text">
-                <h4>{review.full_name}{review.age && `, ${review.age} лет`}</h4>
+                <h4>{review.name}{review.age && `, ${review.age} лет`}</h4>
                 <p>{review.text}</p>
               </div>
             </div>
@@ -72,13 +77,19 @@ export default function ReviewsSection() {
         
         {reviews.length > reviewsPerPage && (
           <div className="carousel-navigation">
-          <button className="nav-button prev" onClick={prevReviews}>
-            ‹
-          </button>  
-          <button className="nav-button next" onClick={nextReviews}>
-            ›
-          </button>
-        </div>
+            <button className="nav-button prev" onClick={prevReviews}>
+              {/* Встроенная SVG-иконка для "назад" (шеврон влево) */}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>  
+            <button className="nav-button next" onClick={nextReviews}>
+              {/* Встроенная SVG-иконка для "вперед" (шеврон вправо) */}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
         )}
       </div>
     </section>
