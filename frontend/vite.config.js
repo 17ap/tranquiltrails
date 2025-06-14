@@ -4,9 +4,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   publicDir: 'public',
   plugins: [react()],
-  preview: {
-    allowedHosts: true,
-    port: 80,
+  preview: {  
+    port: 89,
     proxy: {
       '/api': {
         target: 'http://localhost:3000', // Your backend
@@ -16,6 +15,7 @@ export default defineConfig({
     }
   },
   server: {
+    allowedHosts: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3000', // Your backend
