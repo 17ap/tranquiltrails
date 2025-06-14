@@ -5,6 +5,7 @@ export default defineConfig({
   publicDir: 'public',
   plugins: [react()],
   preview: {
+    allowedHosts: true,
     port: 80,
     proxy: {
       '/api': {
