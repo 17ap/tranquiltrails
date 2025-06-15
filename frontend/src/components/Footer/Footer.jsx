@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer-column">
             <div className="footer-info">
               <img 
-                src="/public/images/logo2.png" 
+                src="/images/logo2.png" 
                 alt="Логотип" 
                 className="footer-logo"
                 loading="lazy"
@@ -61,7 +61,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                <img src="/public/images/inst.png" alt="Instagram" loading="lazy" />
+                <img src="/images/inst.png" alt="Instagram" loading="lazy" />
               </a>
               <a 
                 href="https://vk.com/tranquiltrailsclub" 
@@ -69,7 +69,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="VK"
               >
-                <img src="/public/images/vk.png" alt="VK" loading="lazy" />
+                <img src="/images/vk.png" alt="VK" loading="lazy" />
               </a>
               <a 
                 href="https://t.me/TranquilTrailsClub" 
@@ -77,7 +77,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Telegram"
               >
-                <img src="/public/images/tg2.png" alt="Telegram" loading="lazy" />
+                <img src="/images/tg2.png" alt="Telegram" loading="lazy" />
               </a>
             </div>
           </div>
