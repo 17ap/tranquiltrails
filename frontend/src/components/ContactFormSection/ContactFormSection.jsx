@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import joinImage from '../../../assets/images/Starr.jpg';
 
 export default function ContactFormSection() {
     const [formData, setFormData] = useState({
@@ -75,7 +75,7 @@ export default function ContactFormSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />
+                   <img src={joinImage} alt="star-decor" loading="lazy" />
                   
                   {error && <div className="error-message">{error}</div>}
                   

@@ -1,5 +1,10 @@
 // Component for About Section
 import { useNavigate } from 'react-router-dom';
+import joinImage1 from '../../assets/images/Girl.jpg';
+import joinImage2 from '../../assets/images/circle1.png';
+import joinImage3 from '../../assets/images/circle2.png';
+import joinImage4 from '../../assets/images/circle3.png';
+
 import './AboutSection.scss';
 
 
@@ -32,7 +37,7 @@ export default function AboutSection() {
             </div>
             
             <div className="about-image">
-              <img src="/images/Девушка.jpg" alt="Наше сообщество" loading="lazy" />
+                 <img src={joinImage1} alt="Девушка" loading="lazy" />
             </div>
           </div>
           
@@ -48,17 +53,17 @@ export default function AboutSection() {
           <div className="features-container">
             <div className="features">
               <div className="feature-box">
-                <img src="/images/circle1.png" alt="" className="feature-texture" loading="lazy" />
+                 <img src={joinImage2} alt="texture" loading="lazy" />
                 <h4>СООБЩЕСТВО ЕДИНОМЫШЛЕННИЦ</h4>
               </div>
               <div className="features-line" style={{ width: '455px' }}></div>
               <div className="feature-box">
-                <img src="/images/circle2.png" alt="" className="feature-texture" loading="lazy" />
+               <img src={joinImage3} alt="texture" loading="lazy" />
                 <h4>ТВОРЧЕСКИЕ МАСТЕР-КЛАССЫ</h4>
               </div>
               <div className="features-line" style={{ width: '455px' }}></div>
               <div className="feature-box">
-                <img src="/images/circle3.png" alt="" className="feature-texture" loading="lazy" />
+                <img src={joinImage4} alt="texture" loading="lazy" />
                 <h4>ПУТЬ К ГАРМОНИИ</h4>
               </div>
             </div>

@@ -117,7 +117,7 @@ export default function MarketDetailPage() {
                   alt={product.name}
                   loading="lazy"
                   onError={(e) => {
-                    e.target.src = '/images/default-product.jpg';
+                    e.target.src = './assets/images/default-product.jpg';
                   }}
                 />
               </div>

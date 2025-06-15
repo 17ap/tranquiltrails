@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
       const productData = {
         id: product.id,
         name: product.name,
-        imageUrl: product.imageUrl || product.image || '/images/default-product.jpg',
+        imageUrl: product.imageUrl || product.image || './assets/images/default-product.jpg',
         cost: product.cost || product.price,
         category: product.category,
         description: product.description,
@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
     return null;
   }
 
-  const imageUrl = product.imageUrl || product.image || '/images/default-product.jpg';
+  const imageUrl = product.imageUrl || product.image || './assets/images/default-product.jpg';
   const displayPrice = product.cost !== undefined ? product.cost : product.price;
 
   return (
@@ -77,7 +77,7 @@ const ProductCard = ({ product }) => {
             alt={product.title || product.name}
             loading="lazy"
             onError={(e) => {
-              e.target.src = '/images/default-product.jpg';
+              e.target.src = './assets/images/default-product.jpg';
               e.target.onError = null;
             }}
           />

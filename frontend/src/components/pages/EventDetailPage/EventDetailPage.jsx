@@ -208,7 +208,7 @@ export default function EventDetailPage() {
               src={event.imageUrl}
               alt={event.name}
               onError={(e) => {
-                e.target.src = '/images/default-event.jpg';
+                e.target.src = './assets/images/default-event.jpg';
               }}
             />
           </div>

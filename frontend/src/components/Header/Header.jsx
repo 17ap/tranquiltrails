@@ -24,7 +24,7 @@ export default function Header() {
       <div className="container">
         <div className="logo">
           <img 
-            src="/images/Логотип.png" 
+            src="../../assets/images/Logotype.png" 
             alt="Клуб спокойных троп" 
             loading="lazy"
           />

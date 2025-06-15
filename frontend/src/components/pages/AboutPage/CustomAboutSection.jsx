@@ -1,7 +1,7 @@
 import React from 'react';
-import joinImage1 from '../../../../public/images/Счастье.jpg';
-import joinImage2 from '../../../../public/images/Женщины.jpg';
-import joinImage3 from '../../../../public/images/Студия.jpg';
+import joinImage1 from '../../../assets/images/Happy.jpg';
+import joinImage2 from '../../../assets/images/Womens.jpg';
+import joinImage3 from '../../../assets/images/Studio.jpg';
 import './CustomAboutSection.scss'; 
 import { useNavigate } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ export default function CustomAboutSection() {
             <p>В нашем клубе мы объединяем духовные практики, искусство общения и самовыражения, а также ценности поддержки и взаимопомощи. Мы верим, что сила женщины раскрывается через её связь с природой, внутреннюю мудрость и общение с другими женщинами, которые вдохновляют и поддерживают.</p>
           </div>
           <div className="about-image">
-            <img src={joinImage1} alt="Счастье в гармонии" loading="lazy" />
+              <img src={joinImage1} alt="Счастье в гармонии" loading="lazy" />
           </div>
         </div>
         
@@ -39,7 +39,7 @@ export default function CustomAboutSection() {
             <p>«Клуб спокойных троп» — это уникальное пространство, созданное для женщин, которые стремятся к глубокому самопознанию, гармонии с собой и окружающим миром. Здесь мы стремимся не просто развивать внешние качества, но и создавать пространство для истинной гармонии.</p>
           </div>
           <div className="about-image">
-            <img src={joinImage2} alt="Женское сообщество" loading="lazy" />
+              <img src={joinImage2} alt="Женское сообщество" loading="lazy" />
           </div>
         </div>
         
@@ -49,7 +49,7 @@ export default function CustomAboutSection() {
             <p>Мы создали место, где каждая женщина может найти свой путь к балансу между телом, душой и сообществом. Позволяя каждой участнице раскрыться в её уникальности, найти поддержку и понимание, а также обогатить свою жизнь новыми знаниями и опытом.</p>
           </div>
           <div className="about-image">
-            <img src={joinImage3} alt="Наша студия" loading="lazy" />
+             <img src={joinImage3} alt="Наша студия" loading="lazy" />
           </div>
         </div>
         

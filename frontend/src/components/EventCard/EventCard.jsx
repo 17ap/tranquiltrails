@@ -45,7 +45,7 @@ export default function EventCard({ event }) {
             alt={event.name} 
             loading="lazy"
             onError={(e) => {
-              e.target.src = '/images/default-event.jpg'; // Заглушка при ошибке
+              e.target.src = './assets/images/default-event.jpg'; // Заглушка при ошибке
             }}
           />
         </div>

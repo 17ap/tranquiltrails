@@ -61,7 +61,7 @@ const ContactsPage = () => {
       <Header />
       
       <img 
-        src="/images/Звезда.png" 
+        src="../../../assets/images/Starr.png" 
         alt="Декоративная звезда" 
         className="star-decoration" 
       />
@@ -88,7 +88,7 @@ const ContactsPage = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <img src="/images/Звезда.png" alt="" className="form-star-decoration" loading="lazy" />
+                  <img src="./assets/images/Starr.png" alt="" className="form-star-decoration" loading="lazy" />
                   
                   {error && <div className="error-message">{error}</div>}
                   

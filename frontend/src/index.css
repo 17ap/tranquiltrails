@@ -304,7 +304,7 @@ body {
   text-align: center;
   padding: 300px 0 180px;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-              url('images/Фон.jpg') no-repeat center center;
+              url('assets/images/Fon.jpg') no-repeat center center;
   background-size: cover;
   color: var(--light-color);
   min-height: 100vh;
@@ -1096,7 +1096,7 @@ h1.product-title {
 
   /* Добавляем иконку Telegram, если она нужна */
   &::before {
-    content: url('/images/telegram-icon.svg'); /* Путь к вашей SVG-иконке */
+    content: url('../../../assets/images/telegram-icon.svg'); /* Путь к вашей SVG-иконке */
     display: inline-block;
     width: 18px; /* Размер иконки */
     height: 18px;

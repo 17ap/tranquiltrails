@@ -63,7 +63,7 @@ export default function ReviewsSection() {
                   alt={review.name} 
                   loading="lazy"
                   onError={(e) => {
-                    e.target.src = '/images/default-avatar.jpg'; 
+                    e.target.src = './assets/images/default-avatar.jpg'; 
                   }}
                 />
               </div>

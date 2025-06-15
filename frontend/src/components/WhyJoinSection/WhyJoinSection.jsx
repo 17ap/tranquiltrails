@@ -14,7 +14,7 @@ export default function WhyJoinSection() {
           <div className="reasons-grid">
             {reasons.map((reason, index) => (
               <div className="reason-card" key={index}>
-                <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />
+                <img src="./assets/images/Starr.png" alt="" className="star-decoration" loading="lazy" />
                 <div className="reason-content">
                   <p>{reason}</p>
                 </div>
