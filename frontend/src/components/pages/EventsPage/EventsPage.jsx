@@ -69,7 +69,7 @@ export default function EventsPage() {
       
       <section className="events-section">
         <div className="container">
-          <h3 className="events-h3">Мероприятия</h3>
+          <h3 className="section-title">АФИША МЕРОПРИЯТИЙ</h3>
           
           <div className="events-grid">
             {/* Теперь просто маппим события и рендерим EventCard для каждого */}

@@ -1,43 +1,62 @@
+// src/components/AboutSection/AboutSection.scss
+
 .about-us {
   padding: 100px 0;
   background-color: var(--light-color);
 }
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 
-/* Текстовая часть */
-.about-text {
+
+.about-content {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.about-text-group {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Фиксированный отступ 24px между блоками */
+  gap: 24px;
 }
 
-/* Изображение */
 .about-image {
   flex: 1;
   display: flex;
- 
+  justify-content: center;
+  align-items: center;
 }
 
 .about-image img {
   width: 100%;
-  height: 100%; /* Изображение заполняет свой контейнер */
+  height: 100%;
   object-fit: cover;
   border-radius: 22px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Стили для текстовых блоков */
 .text-box {
   border-radius: 22px;
-  padding: 30px;
-  display: flex;      
-  flex-direction: column; 
-  align-items: center;   
-  justify-content: center; 
-  padding-top: 60px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
+  text-align: center;
 }
 
 .first-box {
@@ -60,105 +79,24 @@
   font-size: 20px;
   line-height: 1.5;
   margin: 0;
-  text-align: center; 
-  
-  
 }
 
 .third-box p {
   color: #000000;
 }
 
-/* Кнопка "Присоединиться"  */
-
 .center-button {
-  text-align: center; /* Центрируем кнопку */
+  text-align: center;
+  margin: 60px 0;
 }
 
-.join-button {
-  background: var(--primary-color); 
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-family:  'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-  text-transform: uppercase;
-}
-
-.join-button:hover {
-  background: var(--dark-color); 
-}
-
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .about-content {
-    flex-direction: column; 
-    gap: 40px; 
-  }
-  
-  .about-image {
-    height: 400px; 
-    margin-top: 0; 
-  }
-
-  .about-image img {
-    height: 100%; 
-  }
-  
-  .text-box p {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-content {
-    gap: 30px;
-  }
-  
-  .text-box {
-    padding: 20px;
-  }
-
-  .text-box p {
-    font-size: 16px; 
-  }
-
-  .join-button {
-    font-size: 16px;
-    padding: 12px 25px;
-  }
-}
-
-
-@media (max-width: 576px) {
-  .about-us {
-    padding: 60px 0;
-  }
-
-  .about-content {
-    gap: 20px;
-    margin-bottom: 50px;
-  }
-  
-  .about-image {
-    height: 300px;
-  }
-}
-
-
+/* Секция с кругами и линиями */
 .features-container {
   position: relative;
-  margin-top: 160px;
-}
-
-.features-line {
-  height: 2px;
-  background-color: #717857;
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .features {
@@ -166,16 +104,35 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.features-line {
+  height: 2px;
+  background-color: var(--dark-color);
+  flex-grow: 1;
+  max-width: 250px;
+  min-width: 100px; /* *** ИЗМЕНЕНИЕ 1: Вернул min-width для полосок в десктопе *** */
+  margin: 0 0px;
 }
 
 .feature-box {
   position: relative;
   text-align: center;
-  margin: 0 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 250px;
+  max-width: 340px;
+  width: auto;
 }
 
 .feature-texture {
-  width: 340px;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -197,49 +154,126 @@
   box-sizing: border-box;
 }
 
-/* Адаптивность */
+/* АДАПТИВНОСТЬ */
+
 @media (max-width: 1200px) {
   .about-content {
-      flex-direction: column;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
   }
-  
-  .text-box {
-      width: 100% !important;
+
+  .about-text-group,
+  .about-image {
+    width: 100%;
+    flex: none;
+    max-width: 600px;
   }
-  
+
+  .about-image {
+    height: 400px;
+    margin-top: 0;
+  }
+
   .about-image img {
-      width: 100%;
+    height: 100%;
   }
-  
+
+  .text-box {
+    padding: 40px 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .text-box p {
+    font-size: 18px;
+  }
+
   .features {
-      flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 15px;
+    flex-wrap: wrap;
   }
-  
+
   .features-line {
-      width: 2px !important;
-      height: 50px !important;
+    width: 2px !important;
+    height:  2px !important;
+    margin: 20px 0 !important;
+    background-color: #717857 !important;
+    border: none !important;
+    max-width: 10px !important;
+  }
+
+  .center-button {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .join-button {
+    width: 100%;
+    max-width: 400px;
+    padding: 18px 20px;
+    font-size: 18px;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 768px) {
-  .section-title {
-      font-size: 36px;
+  .about-content {
+    gap: 30px;
   }
-  
-  .header-line {
-      width: 100px !important;
+  .text-box {
+    padding: 30px 20px;
   }
-  
+
   .text-box p {
-      font-size: 18px;
+    font-size: 16px;
   }
-  
+
+  .join-button {
+    font-size: 16px;
+    padding: 15px 30px;
+  }
+
+
+  .header-line {
+    width: 100px !important;
+  }
   .feature-texture {
-      width: 280px;
+    width: 280px;
   }
 }
-.about-content {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 60px;
+
+
+@media (max-width: 576px) {
+  .about-us {
+    padding: 60px 0;
+  }
+
+  .about-content {
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .about-image {
+    height: 300px;
+  }
+
+  .text-box {
+    padding: 25px 15px;
+  }
+  .text-box p {
+    font-size: 14px;
+  }
+
+  .join-button {
+    font-size: 14px;
+    padding: 12px 25px;
+    margin-top: -60px;
+  }
+
+  
 }

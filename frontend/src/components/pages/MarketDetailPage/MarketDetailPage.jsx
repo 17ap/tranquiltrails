@@ -1,9 +1,7 @@
-// MarketDetailPage.jsx
 import { useState, useEffect } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../Header/Header';
 import ProductCard from '../../ProductCard/ProductCard';
-
 
 export default function MarketDetailPage() {
   const { id } = useParams();
@@ -15,7 +13,6 @@ export default function MarketDetailPage() {
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // MarketDetailPage.jsx
   useEffect(() => {
     const loadData = async () => {
       let currentProduct = null;
@@ -24,8 +21,7 @@ export default function MarketDetailPage() {
         setLoading(true);
         setError(null);
 
-
-        console.log('Fetching product from API...');
+        // console.log('Fetching product from API...'); // Можно раскомментировать для отладки
         const response = await fetch(`/api/products`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -36,15 +32,12 @@ export default function MarketDetailPage() {
           if (foundProduct) {
             currentProduct = foundProduct;
             products = data.products;
-            // Сохраняем в кэш
           } else {
-            throw new Error('Товар не найден')
+            throw new Error('Товар не найден');
           }
         } else {
           throw new Error(data.error || 'Товар не найден на сервере.');
         }
-
-
 
         if (currentProduct) {
           setProduct(currentProduct);
@@ -58,15 +51,15 @@ export default function MarketDetailPage() {
         } else {
           setError('Товар не найден.');
         }
-        setLoading(false);
       } catch (err) {
         console.error('Ошибка загрузки:', err);
         setError(err.message || 'Произошла ошибка при загрузке товара или рекомендаций.');
+      } finally { // Перемещаем setLoading(false) в finally
         setLoading(false);
       }
     };
     loadData();
-  }, [id, location.state, navigate]); // Добавляем navigate в зависимости
+  }, [id]); // Удаляем location.state и navigate из зависимостей, так как они не используются напрямую внутри useEffect для загрузки данных
 
   // Объединенный обработчик для навигации на страницу деталей другого товара
   const handleProductItemClick = (clickedProduct, e) => {
@@ -75,7 +68,6 @@ export default function MarketDetailPage() {
       return;
     }
 
-    // Если клик был по всей карточке рекомендации
     // Обновляем историю просмотров
     const viewedProducts = JSON.parse(localStorage.getItem('viewed_products') || '[]');
     const existingIndex = viewedProducts.findIndex(p => p.id === clickedProduct.id);
@@ -91,6 +83,8 @@ export default function MarketDetailPage() {
       cost: clickedProduct.cost || clickedProduct.price,
       category: clickedProduct.category
     });
+    localStorage.setItem('viewed_products', JSON.stringify(viewedProducts));
+
 
     // Переходим на страницу товара.
     navigate(`/product/${clickedProduct.id}`, { state: { product: clickedProduct } });
@@ -105,119 +99,88 @@ export default function MarketDetailPage() {
     <div className="market-detail-page">
       <Header activeLink="market" />
 
-      <main className="product-page">
-        <div className="container">
-          <div className="product-card-detail"> {/* Возвращаем class="product-card" */}
-            {/* Галерея товара */}
-            {/* TODO исправить верстку product-gallery */}
-            <div className="product-gallery"> {/* Возвращаем class="product-gallery" */}
-              <div className="main-image"> {/* Возвращаем class="main-image" */}
-                <img
-                  src={product.images?.[selectedImage] || product.imageUrl || product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  onError={(e) => {
-                    e.target.src = '/images/default-product.jpg';
-                  }}
-                />
-              </div>
-
-              {product.images?.length > 1 && (
-                <div className="thumbnail-grid">
-                  {product.images.map((img, index) => (
-                    <button
-                      key={index}
-                      className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
-                      onClick={() => setSelectedImage(index)}
-                    >
-                      <img src={img} alt={`Вариант ${index + 1}`} />
-                    </button>
-                  ))}
-                </div>
-              )}
+      <main className="container"> {/* Главный контейнер для центрирования контента */}
+        <section className="product-content"> {/* Переименовал с product-card-detail для унификации */}
+          {/* Галерея товара */}
+          <div className="product-gallery">
+            <div className="main-image">
+              <img
+                src={product.images?.[selectedImage] || product.imageUrl || product.image}
+                alt={product.name}
+                loading="lazy"
+                onError={(e) => {
+                  e.target.src = '/images/default-product.jpg';
+                }}
+              />
             </div>
 
-            {/* Информация о товаре */}
-            <div className="product-info"> {/* Возвращаем class="product-info" */}
-              <div className="product-header">
-                <h1 className="product-title"> {/* Возвращаем class="product-title" */}
-                  {product.name}
-                </h1>
-                {product.isNew && <span className="product-badge">Новинка</span>}
+            {product.images?.length > 1 && (
+              <div className="thumbnail-grid">
+                {product.images.map((img, index) => (
+                  <button
+                    key={index}
+                    className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
+                    onClick={() => setSelectedImage(index)}
+                  >
+                    <img src={img} alt={`Вариант ${index + 1}`} />
+                  </button>
+                ))}
               </div>
+            )}
+          </div>
 
-              <div className="product-price"> {/* Возвращаем class="product-price" */}
-                {product.cost?.toLocaleString('ru-RU') || product.price?.toLocaleString('ru-RU')} ₽
+          {/* Информация о товаре */}
+          <div className="product-information">
+            <h1 >{product.name}</h1>
+            {product.isNew && <span className="product-badge">Новинка</span>}
+
+            <div className="product-meta"> {/* Добавил product-meta как в EventDetailPage */}
+                <span className="price">
+                    {product.cost?.toLocaleString('ru-RU') || product.price?.toLocaleString('ru-RU')} ₽
+                </span>
                 {product.oldPrice && (
                   <span className="old-price">
                     {product.oldPrice.toLocaleString('ru-RU')} ₽
                   </span>
                 )}
-              </div>
+            </div>
 
-              <div className="product-availability">В наличии</div>
+            <div className="product-availability">В наличии</div>
 
-              <div className="product-description"> {/* Возвращаем class="product-description" */}
-                <p>{product.description || 'Нет описания.'}</p>
-              </div>
+            <div className="product-description">
+              <p>{product.description || 'Нет описания.'}</p>
+            </div>
 
-              {/* Кнопка "Написать продавцу" */}
-              <a
-                href="https://t.me/apl17w"
-                className="contact-seller-button" // Новый класс для этой кнопки
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Написать продавцу
-              </a>
+            {/* Кнопка "Написать продавцу" */}
+            <div class="market-btn">
+            <a
+              href="https://t.me/apl17w"
+              className="contact-seller-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Написать продавцу
+            </a>
             </div>
           </div>
+        </section>
 
-          {/* Блок рекомендаций */}
-          {recommendations.length > 0 && (
-           <section className="recommendations">
-              <h2>Рекомендации</h2>
-              <div className="recommendation-items"> {/* Этот класс останется для грида рекомендаций */}
-                {recommendations.map(item => (
-                  // <div // <--- ЭТОТ БЛОК БОЛЬШЕ НЕ НУЖЕН!
-                  //   key={item.id}
-                  //   className="recommendation-card"
-                  //   onClick={(e) => handleProductItemClick(item, e)} // Логика клика теперь внутри ProductCard
-                  // >
-                  //   <img
-                  //     src={item.imageUrl || item.image}
-                  //     alt={item.name}
-                  //     onError={(e) => {
-                  //       e.target.src = '/images/default-product.jpg';
-                  //     }}
-                  //   />
-                  //   <div className="recommendation-details">
-                  //     <h3 className="product-title">
-                  //       {item.name}
-                  //     </h3>
-                  //     <div className="price">
-                  //       {item.cost?.toLocaleString('ru-RU') || item.price?.toLocaleString('ru-RU')} ₽
-                  //     </div>
-                  //     <a
-                  //       href="https://t.me/apl17w"
-                  //       className="recommendation-seller-button"
-                  //       target="_blank"
-                  //       rel="noopener noreferrer"
-                  //       onClick={(e) => e.stopPropagation()}
-                  //     >
-                  //       Написать продавцу
-                  //     </a>
-                  //   </div>
-                  // </div>
-
-                  // <--- ЗАМЕНЯЕМ ЭТО НА ProductCard: --->
-                  <ProductCard key={item.id} product={item} /> // Используем ProductCard!
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
+        {/* Блок рекомендаций */}
+        {recommendations.length > 0 && (
+          <section className="recommended-products"> {/* Переименовал для ясности */}
+            <h2 className="section-title">Рекомендуем также</h2> {/* Используем section-title */}
+            <div className="products-grid"> {/* Новый класс для грида рекомендаций */}
+              {recommendations.map(item => (
+                <ProductCard
+                  key={item.id}
+                  product={item}
+                  onClick={(e) => handleProductItemClick(item, e)} // Передаем обработчик в ProductCard
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

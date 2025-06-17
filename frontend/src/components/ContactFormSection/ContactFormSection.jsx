@@ -61,6 +61,10 @@ export default function ContactFormSection() {
           <h2 className="section-title">ОСТАВЬ ЗАЯВКУ, И МЫ С ТОБОЙ СВЯЖЕМСЯ</h2>
           
           <div className="contacts-container">
+            {/* *** ИЗМЕНЕНИЕ 1: Звездочка вне формы, но внутри contacts-container или contacts-form *** */}
+            {/* Я помещу её прямо перед contacts-form, чтобы она была поверх */}
+            <img src="/images/Звезда.png" alt="" className="star-decoration-contact" loading="lazy" /> 
+
             <div className="contacts-form">
               {showSuccess ? (
                 <div className="success-message">
@@ -75,7 +79,7 @@ export default function ContactFormSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />
+                  {/* <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />  *** УДАЛЕНО: Звезда была здесь *** */}
                   
                   {error && <div className="error-message">{error}</div>}
                   

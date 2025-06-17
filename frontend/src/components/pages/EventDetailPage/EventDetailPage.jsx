@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../Header/Header';
-import './EventDetailPage.scss';
+import EventCard from '../../EventCard/EventCard';
+ // Убедитесь, что этот импорт есть
 
 const BookingForm = ({ event, onClose }) => {
   const [formData, setFormData] = useState({
@@ -53,6 +54,7 @@ const BookingForm = ({ event, onClose }) => {
   if (success) {
     return (
       <div className="success-message">
+        <button className="close-modal-btn" onClick={onClose}>&times;</button> {/* Крестик для закрытия */}
         <h3>Бронирование успешно!</h3>
         <p>Мы отправили подтверждение на вашу почту</p>
         <button className="close-btn" onClick={onClose}>Закрыть</button>
@@ -62,12 +64,14 @@ const BookingForm = ({ event, onClose }) => {
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
-      <h2>Бронирование: {event.name}</h2>
+      <button className="close-modal-btn" onClick={onClose}>&times;</button> {/* Крестик для закрытия */}
+      <h2 class="section-title">Бронирование мероприятия</h2> {/* Изменен заголовок */}
 
       <div className="form-group">
-        <label>ФИО:</label>
+        <label htmlFor="fullName">ФИО:</label>
         <input
           type="text"
+          id="fullName" // Добавлен id
           name="fullName"
           value={formData.fullName}
           onChange={handleChange}
@@ -76,9 +80,10 @@ const BookingForm = ({ event, onClose }) => {
       </div>
 
       <div className="form-group">
-        <label>Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
+          id="email" // Добавлен id
           name="email"
           value={formData.email}
           onChange={handleChange}
@@ -87,9 +92,10 @@ const BookingForm = ({ event, onClose }) => {
       </div>
 
       <div className="form-group">
-        <label>Телефон:</label>
+        <label htmlFor="phoneNumber">Телефон:</label>
         <input
           type="tel"
+          id="phoneNumber" // Добавлен id
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleChange}
@@ -98,28 +104,27 @@ const BookingForm = ({ event, onClose }) => {
       </div>
 
       <div className="form-group">
-        <label>Количество мест:</label>
+        <label htmlFor="slots">Количество мест:</label>
         <input
           type="number"
+          id="slots" // Добавлен id
           name="slots"
           min="1"
-          max={event.freeSlots}
+          max="5"
           value={formData.slots}
           onChange={handleChange}
           required
         />
       </div>
 
-      <div className="form-group">
-        <label>Сумма к оплате: {event.cost * formData.slots} ₽</label>
+      <div className="form-group total-cost"> {/* Добавлен класс для стилизации */}
+        <label>Сумма к оплате: <span className="cost-value">{event.cost * formData.slots} ₽</span></label>
       </div>
 
       {error && <div className="error-message">{error}</div>}
 
       <div className="form-actions">
-        <button type="button" className="cancel-btn" onClick={onClose}>
-          Отмена
-        </button>
+        {/* Кнопка "Отмена" удалена, вместо нее крестик */}
         <button type="submit" className="submit-btn" disabled={loading}>
           {loading ? 'Отправка...' : 'Подтвердить бронирование'}
         </button>
@@ -141,14 +146,12 @@ export default function EventDetailPage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // Проверяем, есть ли событие в состоянии location
         if (location.state?.event) {
           setEvent(location.state.event);
           setLoading(false);
           return;
         }
 
-        // Загружаем все события
         const response = await fetch('/api/events');
 
         if (!response.ok) {
@@ -160,7 +163,6 @@ export default function EventDetailPage() {
         if (data.success) {
           setEvents(data.data || []);
 
-          // Находим нужное событие по ID
           const foundEvent = data.data.find(e => e.id === id);
           if (foundEvent) {
             setEvent(foundEvent);
@@ -180,7 +182,6 @@ export default function EventDetailPage() {
     fetchEvents();
   }, [id, location.state]);
 
-  // Рекомендуемые мероприятия (исключая текущее)
   const recommendedEvents = events
     .filter(e => e.id !== id)
     .slice(0, 3);
@@ -197,6 +198,7 @@ export default function EventDetailPage() {
     return <div className="not-found">Мероприятие не найдено</div>;
   }
   console.log('Current event:', event);
+  
   return (
     <div className="event-detail-page">
       <Header />
@@ -217,9 +219,15 @@ export default function EventDetailPage() {
             <h1>{event.name}</h1>
             <div className="event-meta">
               <span className="date">
-                {new Date(event.dateTime).toLocaleDateString('ru-RU')}
+                {new Date(event.dateTime).toLocaleDateString('ru-RU', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric'
+                })}
               </span>
-              <span className="location">{event.location}</span>
+              <span className="location"> {/* Убедитесь, что .location остался, если он есть в данных */}
+                {event.location}
+              </span>
             </div>
 
             <div className="event-price">{event.cost} ₽</div>
@@ -240,22 +248,10 @@ export default function EventDetailPage() {
 
         {recommendedEvents.length > 0 && (
           <section className="recommended-events">
-            <h2>Рекомендуем также</h2>
+            <h2 className="section-title">Рекомендуем также</h2>
             <div className="events-grid">
               {recommendedEvents.map(item => (
-                <div
-                  key={item.id}
-                  className="event-card"
-                  onClick={() => navigate(`/events/${item.id}`, { state: { event: item } })}
-                >
-                  <div className="event-image">
-                    <img src={item.imageUrl} alt={item.name} />
-                  </div>
-                  <div className="event-details">
-                    <h3>{item.name}</h3>
-                    <div className="event-price">{item.cost} ₽</div>
-                  </div>
-                </div>
+                <EventCard key={item.id} event={item} />
               ))}
             </div>
           </section>

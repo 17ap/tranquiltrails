@@ -163,7 +163,7 @@ const MarketPage = () => {
   return (
     <section className="market">
       <div className="container">
-        <h1 className="market-title">Маркет</h1>
+        <h1 className="section-title">Маркет</h1>
 
         <div className="filter-tabs">
           {categories.map(category => (

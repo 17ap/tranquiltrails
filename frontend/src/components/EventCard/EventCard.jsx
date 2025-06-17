@@ -50,7 +50,7 @@ export default function EventCard({ event }) {
           />
         </div>
       </div>
-      <div className="event-info">
+      <div className="event-information">
         <div className="event-price">{event.cost} ₽</div> {/* Отображение цены */}
         <h4 className="event-title">
           <div onClick={handleEventClick}>{event.name}</div> {/* Клик по названию */}

@@ -1,5 +1,5 @@
 .custom-about-section {
-margin-top: 150px;
+margin-top: 130px;
     background-color: #F9F8F3;
   
     .container {
@@ -73,7 +73,7 @@ margin-top: 150px;
   
   @media (max-width: 768px) {
     .custom-about-section {
-      padding: 60px 0;
+     
   
       .section-title {
         font-size: 36px;
@@ -104,6 +104,8 @@ margin-top: 150px;
       .join-button {
         padding: 15px 40px;
         font-size: 16px;
+        margin-top: 0px;
+        border-radius: 12px;
       }
     }
   }

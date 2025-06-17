@@ -60,20 +60,17 @@ const ContactsPage = () => {
     <div className="contacts-page-wrapper">
       <Header />
       
-      <img 
-        src="/images/Звезда.png" 
-        alt="Декоративная звезда" 
-        className="star-decoration" 
-      />
-
+  
       <section className="contacts-page">
         <div className="container">
           <h2 className="section-title">КОНТАКТЫ</h2>
+          
           <p className="contacts-subtitle">
             ОСТАВЬ ЗАЯВКУ, И МЫ С ТОБОЙ СВЯЖЕМСЯ
           </p>
           
           <div className="contacts-container">
+           
             <div className="contacts-form">
               {showSuccess ? (
                 <div className="success-message">
@@ -86,9 +83,12 @@ const ContactsPage = () => {
                     Отправить новую заявку
                   </button>
                 </div>
+
+
               ) : (
+                
                 <form onSubmit={handleSubmit}>
-                  <img src="/images/Звезда.png" alt="" className="form-star-decoration" loading="lazy" />
+                
                   
                   {error && <div className="error-message">{error}</div>}
                   
