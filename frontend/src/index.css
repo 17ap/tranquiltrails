@@ -715,6 +715,7 @@ body {
   color: #505F50;
   padding: 0 20px;
   box-sizing: border-box;
+ 
 }
 
 .reasons-grid {
@@ -904,7 +905,7 @@ body {
 .market {
   padding: 80px 20px; /* Берем из первой версии */
   background-color: #F9F8F3;
-  
+  margin-top: 70px;
 }
 
 .products-grid { 
