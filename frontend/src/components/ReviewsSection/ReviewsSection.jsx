@@ -53,7 +53,7 @@ export default function ReviewsSection() {
   return (
     <section className="reviews-section">
       <div className="container">
-        <h3>ОТЗЫВЫ</h3>
+        <h2 class='section-title'>ОТЗЫВЫ</h2>
         <div className="reviews-grid">
           {visibleReviews.map((review) => (
             <div className="review-card" key={review.id}>

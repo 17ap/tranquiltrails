@@ -27,7 +27,7 @@ export default function ContactFormSection() {
         });
         
         if (!response.ok) {
-          throw new Error('Ошибка при отправке формы');
+          throw new Error('Ошибка при отправке формы: ' + await response.text()); // Изменено для лучшей диагностики
         }
         
         const result = await response.json();
@@ -56,16 +56,15 @@ export default function ContactFormSection() {
     };
   
     return (
-      <section className="contact-form">
+      <section className="contact-form-section"> {/* Изменил класс для ясности */}
         <div className="container">
           <h2 className="section-title">ОСТАВЬ ЗАЯВКУ, И МЫ С ТОБОЙ СВЯЖЕМСЯ</h2>
           
-          <div className="contacts-container">
-            {/* *** ИЗМЕНЕНИЕ 1: Звездочка вне формы, но внутри contacts-container или contacts-form *** */}
-            {/* Я помещу её прямо перед contacts-form, чтобы она была поверх */}
-            <img src="/images/Звезда.png" alt="" className="star-decoration-contact" loading="lazy" /> 
+          <div className="main-contact-content"> {/* Новый контейнер для центрирования формы и звезды */}
+            {/* Звездочка вне формы, но внутри контейнера, который мы будем центрировать */}
+            <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />
 
-            <div className="contacts-form">
+            <div className="contacts-form-wrapper"> {/* Обертка для самой формы, чтобы её можно было легко центрировать */}
               {showSuccess ? (
                 <div className="success-message">
                   <h3>Спасибо!</h3>
@@ -79,8 +78,6 @@ export default function ContactFormSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  {/* <img src="/images/Звезда.png" alt="" className="star-decoration" loading="lazy" />  *** УДАЛЕНО: Звезда была здесь *** */}
-                  
                   {error && <div className="error-message">{error}</div>}
                   
                   <div className="form-group">
