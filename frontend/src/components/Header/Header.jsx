@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Header.scss';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,12 +24,14 @@ export default function Header() {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo">
-          <img 
-            src="/images/Логотип.png" 
-            alt="Клуб спокойных троп" 
-            loading="lazy"
-          />
-        </div>
+  <Link to="/"> {/* При клике на этот Link, перейдет на путь '/' */}
+    <img
+      src="/images/Логотип.png"
+      alt="Клуб спокойных троп"
+      loading="lazy"
+    />
+  </Link>
+</div>
 
         <button 
           className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}

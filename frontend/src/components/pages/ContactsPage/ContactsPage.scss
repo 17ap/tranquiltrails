@@ -9,6 +9,18 @@
   z-index: 1000;
   background-color: #F9F8F3;
 }
+p {
+      a {
+        color: #555; // Исходный цвет текста ссылки
+        text-decoration: none; // Убрать подчеркивание, если оно есть по умолчанию
+        transition: color 0.3s ease; // Плавный переход цвета
+
+        &:hover {
+          color: #A46641; // Коричневый цвет при наведении (из вашего предыдущего кода)
+          text-decoration: underline; // Можно добавить подчеркивание при наведении
+        }
+      }
+    }
 
 .contacts-page {
   padding: 80px 0;

@@ -701,6 +701,8 @@ body {
   padding: 100px 0;
   background-color: #F9F8F3;
   position: relative;
+  margin-top: 0px;
+  
 }
 
 .section-title {
@@ -721,6 +723,8 @@ body {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 80px;
+
 }
 
 .reason-card {
@@ -900,7 +904,7 @@ body {
 .market {
   padding: 80px 20px; /* Берем из первой версии */
   background-color: #F9F8F3;
-  margin-top: 70px;
+  
 }
 
 .products-grid { 
@@ -2859,3 +2863,4 @@ a:hover {
   
 
 }
+

@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       
       <main className="privacy-container">
         <div className="privacy-header">
-          <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+          <h1 class="section-title">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
         </div>
         
         <div className="privacy-content">

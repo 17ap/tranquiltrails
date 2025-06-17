@@ -39,7 +39,7 @@
       }
   
       a {
-        color: #333;
+        color: #f5f5f5;
         text-decoration: none;
         transition: color 0.3s;
   
@@ -75,3 +75,16 @@
       grid-template-columns: 1fr;
     }
   }
+
+  p {
+      .footer-a {
+        color: #dcdcdc; // Исходный цвет текста ссылки
+        text-decoration: none; // Убрать подчеркивание, если оно есть по умолчанию
+        transition: color 0.3s ease; // Плавный переход цвета
+
+        &:hover {
+          color: #A46641; // Коричневый цвет при наведении (из вашего предыдущего кода)
+          text-decoration: underline; // Можно добавить подчеркивание при наведении
+        }
+      }
+    }

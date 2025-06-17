@@ -14,9 +14,9 @@ export default function Footer() {
                 className="footer-logo"
                 loading="lazy"
               />
-              <p>ИП ДЕРГУНОВА АЛЕКСАНДРА</p>
-              <p>ИНН 4578393948753475934</p>
-              <p>ОГРН 4578393948753475934</p>
+              <p>ИП ДЕРГУНОВА АЛЕКСАНДРА СЕРГЕЕВНА</p>
+              <p>ИНН 7701234567</p>
+              <p>ОГРН 1027700123456</p>
             </div>
           </div>
 
@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="footer-column">
             <h4 className="footer-title">КОНТАКТЫ</h4>
             <div className="contacts">
-              <p>+7 (911) 585-36-35</p>
+                 <p><a class="footer-a"href="tel:78125253345">+7(812)525-33-45</a></p>
               <p>Сотрудничество</p>
               <p>г. Санкт-Петербург</p>
             </div>
